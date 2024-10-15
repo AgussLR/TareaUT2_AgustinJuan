@@ -3,4 +3,11 @@
     <string name="inputNombre">Nombre</string>
     <string name="inputContraseña">Contraseña</string>
     <string name="iniciarSesion">Iniciar Sesión</string>
+    <string name="citas">Citas</string>
+    <string name="dni">DNI:</string>
+    <string name="nombre">Nombre:</string>
+    <string name="apellido">Apellido:</string>
+    <string name="mascota">Nombre mascota:</string>
+    <string name="telefono">Teléfono:</string>
+    <string name="guardar">Guardar</string>
 </resources>
