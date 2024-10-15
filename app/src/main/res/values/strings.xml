@@ -3,16 +3,4 @@
     <string name="inputNombre">Nombre</string>
     <string name="inputContraseña">Contraseña</string>
     <string name="iniciarSesion">Iniciar Sesión</string>
-    <string name="misMascotas">MIS MASCOTAS</string>
-    <string name="consultas">CONSULTAS</string>
-    <string name="ubicacion">UBICACIÓN</string>
-    <string name="configuracion">CONFIGURACIÓN</string>
-    <string name="emergencias">EMERGENCIAS</string>
-    <string name="contacto">CONTACTO</string>
-    <string name="acerca">ACERCA DE</string>
-    <string name="contactos">CONTACTOS</string>
-    <string name="veterinario">VETERINARIO: HAKUNA MATATA</string>
-    <string name="telefono">TELÉFONO: 123456789</string>
-    <string name="correo">CORREO: hakuna.matata@gmail.com</string>
-    <string name="mapa">MAPA</string>
 </resources>
