@@ -42,7 +42,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/perfil"
-            tools:src="@drawable/baf06f35c1f7b474b0ab7e54de1a3f3c" />
+            tools:src="@drawable/icono" />
 
         <EditText
             android:id="@+id/nombre"
@@ -82,7 +82,6 @@
             android:layout_height="wrap_content"
             android:hint="@string/telefono"
             android:inputType="phone"
-
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/correo" />
@@ -92,10 +91,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/mascota"
-
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/telefono" />
+
     </LinearLayout>
 
 

@@ -41,7 +41,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/perfil"
-            tools:src="@drawable/baf06f35c1f7b474b0ab7e54de1a3f3c" />
+            tools:src="@drawable/icono" />
 
         <EditText
             android:id="@+id/nombre"
