@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Hakuna Matata</string>
+    <string name="inputNombre">Nombre</string>
+    <string name="inputContraseña">Contraseña</string>
+    <string name="iniciarSesion">Iniciar Sesión</string>
     <string name="misMascotas">MIS MASCOTAS</string>
     <string name="consultas">CONSULTAS</string>
     <string name="ubicacion">UBICACIÓN</string>
