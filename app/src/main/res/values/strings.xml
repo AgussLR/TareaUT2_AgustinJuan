@@ -10,4 +10,9 @@
     <string name="mascota">Nombre mascota:</string>
     <string name="telefono">Teléfono:</string>
     <string name="guardar">Guardar</string>
+    <string name="configuracion">Configuración</string>
+    <string name="cambiarContraseña">Cambiar Contraseña</string>
+    <string name="idiomas">Idiomas</string>
+    <string name="notificaciones">Notificaciones</string>
+    <string name="modoOscuro">Modo Oscuro/Claro</string>
 </resources>
