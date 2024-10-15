@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Hakuna Matata</string>
+    <string name="perfil">PERFIL</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellidos">Apellidos</string>
+    <string name="correo">Correo</string>
+    <string name="telefono">Teléfono</string>
+    <string name="mascota">Mascota</string>
 </resources>
