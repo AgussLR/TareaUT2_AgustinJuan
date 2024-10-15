@@ -25,7 +25,7 @@
             android:id="@+id/contactosTitulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/contactos"
+            android:text="@string/consultas"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -33,51 +33,64 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/veterinarioText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/veterinario"
+    <EditText
+        android:id="@+id/inputDNI"
+        android:layout_width="148dp"
+        android:layout_height="48dp"
+        android:hint="@string/dni"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/linearlayout" />
 
-    <TextView
-        android:id="@+id/telefonoText"
+    <EditText
+        android:id="@+id/inputNombre"
+        android:layout_width="148dp"
+        android:layout_height="48dp"
+        android:hint="@string/NOMBRE"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/inputDNI" />
+
+    <EditText
+        android:id="@+id/inputDescripcion"
+        android:layout_width="148dp"
+        android:layout_height="48dp"
+        android:hint="@string/descripcion"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/inputNombre" />
+
+    <EditText
+        android:id="@+id/inputCorreo"
+        android:layout_width="148dp"
+        android:layout_height="48dp"
+        android:hint="@string/correo1"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/inputDescripcion" />
+
+    <EditText
+        android:id="@+id/inputTelefono"
+        android:layout_width="148dp"
+        android:layout_height="48dp"
+        android:hint="@string/TELEFONO"
+        android:inputType="phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/inputCorreo" />
+
+    <Button
+        android:id="@+id/enviarBoton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/numTelf"
+        android:text="@string/enviarConsulta"
+        android:backgroundTint="@color/amarillo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/veterinarioText" />
-
-    <TextView
-        android:id="@+id/correoText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/correo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/telefonoText" />
-
-    <LinearLayout
-        android:layout_width="182dp"
-        android:layout_height="155dp"
-        android:background="@color/gris"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/mapaText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/mapa"
-            android:textColor="@color/white" />
-
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@id/inputTelefono" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
