@@ -97,5 +97,4 @@
             app:layout_constraintTop_toBottomOf="@+id/telefono" />
     </LinearLayout>
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>
