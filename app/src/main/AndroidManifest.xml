@@ -13,8 +13,12 @@
         android:theme="@style/Theme.HakunaMatata"
         tools:targetApi="31">
         <activity
+            <!-- Para iniciar citas 
+             android:name=".MainActivityCitas" -->
+
             android:name=".MainActivity"
             android:label="Mi titulo personalizado"
+
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

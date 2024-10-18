@@ -1,5 +1,6 @@
 [versions]
 agp = "8.6.0"
+cardview = "1.0.0"
 coordinatorlayout = "1.2.0"
 drawerlayout = "1.2.0"
 kotlin = "1.9.0"
@@ -15,7 +16,7 @@ navigationFragmentKtx = "2.8.3"
 navigationUiKtx = "2.8.3"
 
 [libraries]
-androidx-cardview = { module = "androidx.cardview:cardview" }
+androidx-cardview = { module = "androidx.cardview:cardview", version.ref = "cardview" }
 androidx-coordinatorlayout = { module = "androidx.coordinatorlayout:coordinatorlayout", version.ref = "coordinatorlayout" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-drawerlayout = { module = "androidx.drawerlayout:drawerlayout", version.ref = "drawerlayout" }
