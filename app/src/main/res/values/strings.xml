@@ -32,9 +32,19 @@
     <string name="TELEFONO">TELEFONO</string>
     <string name="enviarConsulta">ENVIAR CONSULTA</string>
 
+    <!-- Strings de la pantalla citas -->
+    <string name="CITAS">CITAS</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="editar">Editar</string>
+    <string name="añadir">Añadir cita</string>
+    <string name="infoFotoMascota">Foto de @Mascota</string>
+    <string name="nombreMascota">Mascota</string>
+    <string name="fechaCita">Fecha de la cita</string>
 
     <!-- Strings de la pantalla calendario -->
-
     <string name="calendario">Calendario</string>
+
+    <!-- Strings de la pantalla mascotas -->
+    <string name="tipoMascota">Perro</string>
 
 </resources>
