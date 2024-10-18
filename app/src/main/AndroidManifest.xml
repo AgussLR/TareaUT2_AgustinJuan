@@ -15,7 +15,8 @@
         <activity
             <!-- Para iniciar citas 
              android:name=".MainActivityCitas" -->
-
+            <!-- Para iniciar mascotas
+            android:name=".MainActivityMasc" -->
             android:name=".MainActivity"
             android:label="Mi titulo personalizado"
 
