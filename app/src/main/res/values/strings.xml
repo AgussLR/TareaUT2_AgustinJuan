@@ -41,4 +41,7 @@
     <string name="nombreMascota">Mascota</string>
     <string name="fechaCita">Fecha de la cita</string>
 
+    <!-- Strings de la pantalla calendario -->
+    <string name="calendario">Calendario</string>
+
 </resources>
