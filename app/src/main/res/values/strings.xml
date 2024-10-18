@@ -3,4 +3,42 @@
     <string name="inputNombre">Nombre</string>
     <string name="inputContraseña">Contraseña</string>
     <string name="iniciarSesion">Iniciar Sesión</string>
+    <string name="perfil">PERFIL</string>
+    <string name="citas">Citas</string>
+    <string name="dni">DNI:</string>
+    <string name="nombre">Nombre:</string>
+    <string name="apellido">Apellido:</string>
+    <string name="mascota">Nombre mascota:</string>
+    <string name="telefono">Teléfono:</string>
+    <string name="guardar">Guardar</string>
+    <string name="configuracion">Configuración</string>
+    <string name="cambiarContraseña">Cambiar Contraseña</string>
+    <string name="idiomas">Idiomas</string>
+    <string name="notificaciones">Notificaciones</string>
+    <string name="modoOscuro">Modo Oscuro/Claro</string>
+
+    <!-- Strings de la pantalla contactos -->
+    <string name="correo">CORREO: hakuna.matata@gmail.com</string>
+    <string name="contactos">CONTACTOS</string>
+    <string name="numTelf">TELÉFONO: 123456789</string>
+    <string name="veterinario">VETERINARIO: HAKUNA MATATA</string>
+    <string name="mapa">MAPA</string>
+
+    <!-- Strings de la pantalla consultas -->
+    <string name="consultas">CONSULTAS</string>
+    <string name="NOMBRE">NOMBRE</string>
+    <string name="descripcion">DESCRIPCION</string>
+    <string name="correo1">CORREO</string>
+    <string name="TELEFONO">TELEFONO</string>
+    <string name="enviarConsulta">ENVIAR CONSULTA</string>
+
+    <!-- Strings de la pantalla citas -->
+    <string name="CITAS">CITAS</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="editar">Editar</string>
+    <string name="añadir">Añadir cita</string>
+    <string name="infoFotoMascota">Foto de @Mascota</string>
+    <string name="nombreMascota">Mascota</string>
+    <string name="fechaCita">Fecha de la cita</string>
+
 </resources>
