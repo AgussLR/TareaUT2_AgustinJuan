@@ -9,5 +9,9 @@
     <color name="red">#ea2623</color>
     <color name="azulclaro2">#b2c1f3</color>
     <color name="azulclaro">#31eded</color>
-
+    <color name="azulito">#64e3ca</color>
+    <color name="naranja_clarito">#f3cb34</color>
+    <color name="purple_500">#6200EE</color>
+    <color name="purple_700">#3700B3</color>
+    <color name="teal_200">#03DAC5</color>
 </resources>

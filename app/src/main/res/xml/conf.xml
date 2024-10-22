@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Categoría Idiomas -->
+    <PreferenceCategory android:title="Preferencias de Idioma">
+        <SwitchPreferenceCompat
+            android:key="switch_idiomas"
+            android:title="Cambiar idioma"
+            android:summary="Elige si deseas habilitar múltiples idiomas"
+            android:icon="@drawable/language_24dp_5f6368_fill0_wght400_grad0_opsz24" />
+    </PreferenceCategory>
+
+    <!-- Categoría Notificaciones -->
+    <PreferenceCategory android:title="Preferencias de Notificaciones">
+        <SwitchPreferenceCompat
+            android:key="switch_notificaciones"
+            android:title="Activar notificaciones"
+            android:summary="Recibe alertas y actualizaciones importantes"
+            android:icon="@drawable/notifications_24dp_5f6368_fill0_wght400_grad0_opsz24" />
+    </PreferenceCategory>
+
+    <!-- Categoría Tema -->
+    <PreferenceCategory android:title="Preferencias de Tema">
+        <SwitchPreferenceCompat
+            android:key="switch_modo"
+            android:title="Modo oscuro"
+            android:summary="Activa o desactiva el modo oscuro"
+            android:icon="@drawable/dark_mode_24dp_5f6368_fill0_wght400_grad0_opsz24" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
