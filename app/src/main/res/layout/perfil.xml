@@ -2,18 +2,19 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/main_perfil"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/azulito">
 
     <TextView
         android:id="@+id/perfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/perfil"
-        android:textColor="@color/azul_claro"
+        android:textColor="@color/white"
         android:textSize="23sp"
         android:textStyle="bold"
 
@@ -25,7 +26,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:gravity="left"
         android:orientation="vertical"
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,7 +47,7 @@
 
         <EditText
             android:id="@+id/nombre"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/nombre"
             android:inputType="text"
@@ -56,7 +57,7 @@
 
         <EditText
             android:id="@+id/apellidos"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/apellido"
             android:inputType="text"
@@ -67,9 +68,9 @@
 
         <EditText
             android:id="@+id/correo"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/correo"
+            android:hint="@string/correo2"
             android:inputType="text"
 
             app:layout_constraintEnd_toEndOf="parent"
@@ -78,7 +79,7 @@
 
         <EditText
             android:id="@+id/telefono"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/telefono"
             android:inputType="phone"
@@ -88,9 +89,12 @@
 
         <Button
             android:id="@+id/mascota"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/mascota"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/naranja_clarito"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/telefono" />
