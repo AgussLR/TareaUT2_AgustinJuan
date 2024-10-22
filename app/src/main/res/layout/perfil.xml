@@ -5,9 +5,9 @@
     android:id="@+id/main_perfil"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/fondo"
     android:padding="16dp"
-    tools:context=".MainActivity"
-    android:background="@color/azulito">
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/perfil"
@@ -22,6 +22,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
@@ -33,17 +35,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/perfil">
 
+
         <ImageView
             android:id="@+id/imagenperfil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
             android:layout_marginBottom="16dp"
+
+            android:scaleType="centerCrop"
             app:layout_constraintBottom_toTopOf="@+id/nombre"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/perfil"
             tools:src="@drawable/icono" />
+
 
         <EditText
             android:id="@+id/nombre"
@@ -91,9 +97,9 @@
             android:id="@+id/mascota"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/naranja_clarito"
             android:text="@string/mascota"
             android:textColor="@color/black"
-            android:backgroundTint="@color/naranja_clarito"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
