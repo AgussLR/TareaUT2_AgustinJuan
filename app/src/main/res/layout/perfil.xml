@@ -22,6 +22,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
@@ -36,8 +38,8 @@
 
         <ImageView
             android:id="@+id/imagenperfil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
             android:layout_marginBottom="16dp"
 
             android:scaleType="centerCrop"
@@ -47,6 +49,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/perfil"
             tools:src="@drawable/icono" />
+
 
         <EditText
             android:id="@+id/nombre"
