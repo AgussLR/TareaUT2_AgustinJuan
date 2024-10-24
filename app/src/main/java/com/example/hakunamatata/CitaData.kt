@@ -5,3 +5,5 @@ data class CitaData (
     val textMascota : String,
     val textFechaCita : String
 )
+)
+
