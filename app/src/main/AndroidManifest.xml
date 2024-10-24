@@ -13,15 +13,12 @@
         android:theme="@style/Theme.HakunaMatata"
         tools:targetApi="31">
         <activity
-            <!-- Para iniciar citas 
-             android:name=".MainActivityCitas" -->
-            <!-- Para iniciar mascotas
-            android:name=".MainActivityMasc" -->
+
             android:name=".MainActivity"
 
-            android:label="Mi titulo personalizado"
+            android:exported="true"
 
-            android:exported="true">
+            android:label="Mi titulo personalizado">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,3 +30,7 @@
 
 </manifest>
 
+    <!-- Para iniciar citas
+                 android:name=".MainActivityCitas" -->
+    <!-- Para iniciar mascotas
+    android:name=".MainActivityMasc" -->
