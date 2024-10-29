@@ -1,4 +1,4 @@
-package com.example.hakunamatata
+package com.example.hakunamatata.mascota
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,6 @@ import com.example.hakunamatata.databinding.MascotasBinding
 
 class MascotasFragment : Fragment() {
     private lateinit var binding: MascotasBinding
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -1,10 +1,9 @@
-package com.example.hakunamatata
+package com.example.hakunamatata.mascota
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.hakunamatata.databinding.MascotasBinding
 import com.example.hakunamatata.databinding.ItemsMascotaBinding
 
 class RecyclerMascViewAdapter(private val items: List<MascotaData>) : RecyclerView.Adapter<MascotaViewHolder>() {

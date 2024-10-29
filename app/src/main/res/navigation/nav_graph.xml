@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:startDestination="@id/profileFragment">
+    app:startDestination="@id/addCitaFragment">
 
     <fragment
         android:id="@+id/profileFragment"
@@ -10,8 +10,16 @@
 
     <fragment
         android:id="@+id/mascotasFragment"
-        android:name="com.example.hakunamatata.MascotasFragment"
+        android:name="com.example.hakunamatata.mascota.MascotasFragment"
         android:label="Mascotas" />
+    <fragment
+        android:id="@+id/addCitaFragment"
+        android:name="com.example.hakunamatata.cita.AddCitaFragment"
+        android:label="Citas" />
+    <fragment
+        android:id="@+id/calendarioFragment"
+        android:name="com.example.hakunamatata.CalendarioFragment"
+        android:label="Calendario" />
 
 
 </navigation>

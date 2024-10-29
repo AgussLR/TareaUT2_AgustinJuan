@@ -1,12 +1,14 @@
 package com.example.hakunamatata
 
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,11 +29,13 @@ class MainActivity : AppCompatActivity() {
 
         // Configurar ActionBar con NavController
         setupActionBarWithNavController(navController)
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
+
 
 }
 

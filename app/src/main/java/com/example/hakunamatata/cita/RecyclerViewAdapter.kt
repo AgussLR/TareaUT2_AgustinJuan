@@ -1,10 +1,9 @@
-package com.example.hakunamatata
+package com.example.hakunamatata.cita
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.hakunamatata.databinding.CitasBinding
 import com.example.hakunamatata.databinding.ItemsCitaBinding
 
 class RecyclerViewAdapter(private val items: List<CitaData>) : RecyclerView.Adapter<CitaViewHolder>() {
