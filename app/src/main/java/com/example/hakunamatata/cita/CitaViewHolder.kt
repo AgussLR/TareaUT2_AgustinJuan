@@ -1,4 +1,4 @@
-package com.example.hakunamatata
+package com.example.hakunamatata.cita
 
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hakunamatata.databinding.ItemsCitaBinding

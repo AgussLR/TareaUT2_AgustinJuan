@@ -4,7 +4,7 @@
     <data>
         <variable
             name="item"
-            type="com.example.hakunamatata.MascotaData" />
+            type="com.example.hakunamatata.mascota.MascotaData" />
     </data>
 
     <LinearLayout

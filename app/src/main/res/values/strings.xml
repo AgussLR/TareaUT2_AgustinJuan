@@ -4,19 +4,20 @@
     <string name="inputContraseña">Contraseña</string>
     <string name="iniciarSesion">Iniciar Sesión</string>
     <string name="perfil">PERFIL</string>
-    <string name="citas">Citas</string>
-    <string name="dni">DNI:</string>
-    <string name="correo2">Correo:</string>
-    <string name="nombre">Nombre:</string>
-    <string name="apellido">Apellido:</string>
+    <string name="citas">Añade tus citas:</string>
+    <string name="dni">DNI</string>
+    <string name="correo2">Correo</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
     <string name="mascota">Mascota</string>
-    <string name="telefono">Teléfono:</string>
+    <string name="telefono">Teléfono</string>
     <string name="guardar">Guardar</string>
     <string name="configuracion">Configuración</string>
     <string name="cambiarContraseña">Cambiar Contraseña</string>
     <string name="idiomas">Idiomas</string>
     <string name="notificaciones">Notificaciones</string>
     <string name="modoOscuro">Modo Oscuro/Claro</string>
+
 
     <!-- Strings de la pantalla contactos -->
     <string name="correo">CORREO: hakuna.matata@gmail.com</string>
@@ -48,5 +49,6 @@
     <!-- Strings de la pantalla mascotas -->
     <string name="tipoMascota">Perro</string>
 
+    <string name="fechaCalendario">Selecciona tu fecha</string>
 
 </resources>

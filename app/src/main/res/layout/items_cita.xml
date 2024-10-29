@@ -4,7 +4,7 @@
     <data>
         <variable
             name="item"
-            type="com.example.hakunamatata.CitaData" />
+            type="com.example.hakunamatata.cita.CitaData" />
     </data>
 
     <LinearLayout
