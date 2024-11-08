@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:startDestination="@id/mapsFragment">
+    app:startDestination="@id/confFragment">
 
     <fragment
         android:id="@+id/profileFragment"
@@ -26,5 +26,9 @@
         android:name="com.example.hakunamatata.MapFragment"
         android:label="Mapa" />
 
+    <fragment
+        android:id="@+id/confFragment"
+        android:name="com.example.hakunamatata.ConfiguracionFragment"
+        android:label="Configuración" />
 
 </navigation>

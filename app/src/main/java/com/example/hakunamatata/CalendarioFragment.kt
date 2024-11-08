@@ -22,7 +22,6 @@ class CalendarioFragment: Fragment() {
 
         binding = CalendarioBinding.inflate(inflater, container, false)
 
-
         // Formato para mostrar la fecha seleccionada
         val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
 
@@ -34,7 +33,6 @@ class CalendarioFragment: Fragment() {
                     Locale.getDefault()
                 ).parse("$year/${month + 1}/$dayOfMonth")!!
             )
-
 
 
         }

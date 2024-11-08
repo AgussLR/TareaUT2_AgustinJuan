@@ -1,7 +1,9 @@
 package com.example.hakunamatata
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
 //import com.example.hakunamatata.databinding.ConfiguracionBinding
@@ -13,6 +15,12 @@ class ConfiguracionFragment : PreferenceFragmentCompat() {
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.conf, rootKey)
+
+
+
+        // Cargar la preferencia de modo oscuro de SharedPreferences
+        val sharedPreferences = requireActivity().getSharedPreferences("settings", Context.MODE_PRIVATE)
+        val isDarkModeEnabled = sharedPreferences.getBoolean("dark_mode", false)
 
 
         // SWITCHES.
@@ -46,16 +54,21 @@ class ConfiguracionFragment : PreferenceFragmentCompat() {
 
         // Modo oscuro switch
         val switchModo = findPreference<SwitchPreferenceCompat>("switch_modo")
+        switchModo?.isChecked = isDarkModeEnabled  // Establecer el estado inicial del switch según la preferencia guardada
         switchModo?.setOnPreferenceChangeListener { _, newValue ->
             val isChecked = newValue as Boolean
             if (isChecked) {
                 Toast.makeText(requireContext(), "Modo oscuro activado", Toast.LENGTH_SHORT).show()
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             } else {
-                Toast.makeText(requireContext(), "Modo oscuro desactivado", Toast.LENGTH_SHORT)
-                    .show()
+                Toast.makeText(requireContext(), "Modo oscuro desactivado", Toast.LENGTH_SHORT).show()
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
+            // Guardar la preferencia de modo oscuro
+            sharedPreferences.edit().putBoolean("dark_mode", isChecked).apply()
             true
         }
     }
+
 
 }
