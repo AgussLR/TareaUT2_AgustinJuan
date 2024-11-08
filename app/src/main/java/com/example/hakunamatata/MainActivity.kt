@@ -18,16 +18,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Configuramos la Toolbar
+        // Configuramos la Toolbar.
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        // Configurar NavController
+        // Configurar NavController.
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
 
-        // Configurar ActionBar con NavController
+        // Configurar ActionBar con NavController.
         setupActionBarWithNavController(navController)
 
     }
