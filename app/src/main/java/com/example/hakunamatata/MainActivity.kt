@@ -33,6 +33,10 @@ class MainActivity : AppCompatActivity() {
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
 
+//        // Configurar la Toolbar como barra de acción
+//        val toolbar: Toolbar = findViewById(R.id.toolbar)
+//        setSupportActionBar(toolbar)
+
         // Configurar menu toogle
         configureToggleMenu()
         // Configurar la navegación

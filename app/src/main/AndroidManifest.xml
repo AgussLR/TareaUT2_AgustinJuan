@@ -23,7 +23,7 @@
 
             android:exported="true"
 
-            android:label="Mi titulo personalizado">
+            android:label="HAKUNA MATATA">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
