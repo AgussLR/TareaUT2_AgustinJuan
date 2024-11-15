@@ -1,34 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:startDestination="@id/confFragment">
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/CitaFragment">
 
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.hakunamatata.ProfileFragment"
-        android:label="Perfil" />
+        android:label="PERFIL">
+        <action
+            android:id="@+id/action_profileFragment_to_homeFragment"
+            app:destination="@id/CitaFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_mascotas"
+        android:name="com.example.hakunamatata.mascota.MascotasFragment"
+        android:label="MASCOTAS"
+        tools:layout="@layout/mascotas" />
 
     <fragment
         android:id="@+id/mascotasFragment"
         android:name="com.example.hakunamatata.mascota.MascotasFragment"
-        android:label="Mascotas" />
+        android:label="MASCOTAS" >
+        <action
+            android:id="@+id/action_contactoFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+
     <fragment
-        android:id="@+id/addCitaFragment"
-        android:name="com.example.hakunamatata.cita.AddCitaFragment"
-        android:label="Citas" />
+        android:id="@+id/CitaFragment"
+        android:name="com.example.hakunamatata.cita.CitaFragment"
+        android:label="CITAS">
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_calendario"
+        android:name="com.example.hakunamatata.CalendarioFragment"
+        android:label="Calendario"
+        tools:layout="@layout/calendario" />
+
     <fragment
         android:id="@+id/calendarioFragment"
         android:name="com.example.hakunamatata.CalendarioFragment"
-        android:label="Calendario" />
+        android:label="@string/calendario">
+        <action
+            android:id="@+id/action_calendarioFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
 
     <fragment
-        android:id="@+id/mapsFragment"
-        android:name="com.example.hakunamatata.MapFragment"
-        android:label="Mapa" />
+        android:id="@+id/nav_perfil"
+        android:name="com.example.hakunamatata.perfil.PerfilFragment"
+        android:label="@string/menu_perfil"
+        tools:layout="@layout/perfil" />
 
     <fragment
-        android:id="@+id/confFragment"
+        android:id="@+id/nav_citas"
+        android:name="com.example.hakunamatata.cita.CitaFragment"
+        android:label="@string/menu_citas"
+        tools:layout="@layout/citas" />
+
+    <fragment
+        android:id="@+id/nav_consultas"
+        android:name="com.example.hakunamatata.consultas.ConsultasFragment"
+        android:label="@string/consultas"
+        tools:layout="@layout/consultas" />
+
+    <fragment
+        android:id="@+id/consultasFragment"
+        android:name="com.example.hakunamatata.consultas.ConsultasFragment"
+        android:label="Consultas">
+        <action
+            android:id="@+id/action_consultasFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_contacto"
+        android:name="com.example.hakunamatata.contacto.ContactoFragment"
+        android:label="@string/consultas"
+        tools:layout="@layout/contactos" />
+
+    <fragment
+        android:id="@+id/contactoFragment"
+        android:name="com.example.hakunamatata.contacto.ContactoFragment"
+        android:label="Contacto">
+        <action
+            android:id="@+id/action_contactoFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_conf"
         android:name="com.example.hakunamatata.ConfiguracionFragment"
-        android:label="Configuración" />
+        android:label="@string/configuracion"
+        tools:xml="@xml/conf" />
 
 </navigation>

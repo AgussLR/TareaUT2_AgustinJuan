@@ -23,6 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
@@ -43,11 +44,11 @@
 
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toTopOf="@+id/nombre"
-            app:layout_constraintEnd_toEndOf="parent"
 
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/perfil"
-            android:src="@drawable/icono" />
+            tools:src="@drawable/icono" />
 
 
         <EditText
@@ -97,7 +98,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/naranja_clarito"
-            android:text="@string/guardar_perfil"
+            android:text="@string/mascota"
             android:textColor="@color/black"
 
             app:layout_constraintEnd_toEndOf="parent"

@@ -1,17 +1,16 @@
-package com.example.hakunamatata.mascota
+package com.example.hakunamatata.cita
 
-import androidx.fragment.app.viewModels
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.hakunamatata.databinding.MascotasBinding
+import com.example.hakunamatata.databinding.CitasBinding
 
-class MascotasFragment : Fragment() {
+class CitaFragment : Fragment() {
 
-    private lateinit var binding: MascotasBinding
+    private lateinit var binding: CitasBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -19,7 +18,7 @@ class MascotasFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = MascotasBinding.inflate(inflater, container, false)
+        binding = CitasBinding.inflate(inflater, container, false)
 
         // Configurar RecyclerView
         setupRecyclerView()
@@ -28,16 +27,16 @@ class MascotasFragment : Fragment() {
 
 
     private fun setupRecyclerView() {
-        // Configurar el RecyclerView para mostrar la lista de mascotas
+        // Configurar el RecyclerView para mostrar la lista de citas
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         // Datos de prueba para el RecyclerView
         val items = listOf(
-            MascotaData("", "Mascota 1", ""),
-            MascotaData("", "Mascota 2", "")
+            CitaData("", "Mascota 1", ""),
+            CitaData("", "Mascota 2", "")
         )
 
         // Asignar el adaptador al RecyclerView
-        binding.recyclerView.adapter = RecyclerMascViewAdapter(items)
+        binding.recyclerView.adapter = RecyclerViewAdapter(items)
     }
 }

@@ -1,0 +1,27 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_citas"
+        android:title="@string/menu_citas" />
+
+    <item
+        android:id="@+id/menu_mascotas"
+        android:title="@string/menu_mascotas" />
+
+    <item
+        android:id="@+id/menu_consultas"
+        android:title="@string/menu_consultas" />
+
+    <item
+        android:id="@+id/menu_calendario"
+        android:title="@string/menu_calendario" />
+
+    <item
+        android:id="@+id/menu_contacto"
+        android:title="@string/menu_contacto" />
+
+    <item
+        android:id="@+id/menu_conf"
+        android:title="@string/menu_conf" />
+
+</menu>
