@@ -48,9 +48,9 @@ class ProfileFragment : Fragment() {
                             binding.telefono.setText(PerfilResponse.telefono)
 
                             // Carga de la imagen de perfil
-//                            Glide.with(this@MainActivity)
-//                                .load(PerfilResponse.imagenPerfilUrl)
-//                                .into(imagenperfil)
+                            //Glide.with(this@MainActivity)
+                            //.load(PerfilResponse.imagenPerfilUrl)
+                            //.into(imagenperfil)
                         }
                     }
                 } else {

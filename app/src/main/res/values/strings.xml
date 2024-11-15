@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Hakuna Matata</string>
     <string name="inputNombre">Nombre</string>
     <string name="inputContraseña">Contraseña</string>
@@ -50,5 +50,30 @@
     <string name="tipoMascota">Perro</string>
 
     <string name="fechaCalendario">Selecciona tu fecha</string>
+
+    <!-- Idiomas de la app.-->
+    <string-array name="idiomas">
+        <item>Español</item>
+        <item>Inglés</item>
+    </string-array>
+
+    <string-array name="valores_idiomas">
+        <item>es</item>
+        <item>en</item>
+    </string-array>
+
+    <!-- Configuración de la app-->
+
+    <string name="Idioma" >Preferencias de Idioma</string>
+    <string name="cambiarIdioma" >Cambiar Idioma</string>
+    <string name="descripcionIdioma">Selecciona el idioma de la aplicación</string>
+
+    <string name="Notificaciones" >Preferencias de Notificaciones</string>
+    <string name="cambiarNotificacion" >Activar notificaciones</string>
+    <string name="descripcionNotificacion">Recibe alertas y actualizaciones importantes.</string>
+
+    <string name="Oscuro" >Preferencias de Tema</string>
+    <string name="cambiarOscuro" >Modo oscuro</string>
+    <string name="descripcionOscuro">Activa o desactiva el modo oscuro.</string>
 
 </resources>
