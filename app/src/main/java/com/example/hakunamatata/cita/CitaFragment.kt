@@ -1,0 +1,42 @@
+package com.example.hakunamatata.cita
+
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.hakunamatata.databinding.CitasBinding
+
+class CitaFragment : Fragment() {
+
+    private lateinit var binding: CitasBinding
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+
+        binding = CitasBinding.inflate(inflater, container, false)
+
+        // Configurar RecyclerView
+        setupRecyclerView()
+        return binding.root
+    }
+
+
+    private fun setupRecyclerView() {
+        // Configurar el RecyclerView para mostrar la lista de citas
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        // Datos de prueba para el RecyclerView
+        val items = listOf(
+            CitaData("", "Mascota 1", ""),
+            CitaData("", "Mascota 2", "")
+        )
+
+        // Asignar el adaptador al RecyclerView
+        binding.recyclerView.adapter = RecyclerViewAdapter(items)
+    }
+}
