@@ -17,6 +17,7 @@
     <string name="idiomas">Idiomas</string>
     <string name="notificaciones">Notificaciones</string>
     <string name="modoOscuro">Modo Oscuro/Claro</string>
+    <string name="guardar_perfil">GUARDAR PERFIL</string>
 
 
     <!-- Strings de la pantalla contactos -->
@@ -48,8 +49,8 @@
 
     <!-- Strings de la pantalla mascotas -->
     <string name="tipoMascota">Perro</string>
-
     <string name="fechaCalendario">Selecciona tu fecha</string>
+
 
     <!-- Idiomas de la app.-->
     <string-array name="idiomas">
@@ -75,5 +76,19 @@
     <string name="Oscuro" >Preferencias de Tema</string>
     <string name="cambiarOscuro" >Modo oscuro</string>
     <string name="descripcionOscuro">Activa o desactiva el modo oscuro.</string>
+
+    <!-- MENÚ LATERAL -->
+    <string name="open_drawer">Abrir menú</string>
+    <string name="close_drawer">Cerrar menú</string>
+    <string name="header_image_desc">profile image</string>
+    <string name="username">Username</string>
+    <string name="menu_perfil">PERFIL</string>
+    <string name="menu_citas">CITAS</string>
+    <string name="menu_mascotas">MASCOTAS</string>
+    <string name="menu_consultas">CONSULTAS</string>
+    <string name="menu_calendario">CALENDARIO</string>
+    <string name="menu_contacto">CONTACTO</string>
+    <string name="menu_conf">CONFIGURACIÓN</string>
+
 
 </resources>

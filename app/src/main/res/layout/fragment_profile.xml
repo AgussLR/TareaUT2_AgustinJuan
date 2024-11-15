@@ -2,130 +2,108 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_perfil"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="70dp">
-
+    android:background="@color/fondo"
+    android:padding="16dp"
+    tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/tvCitas"
+        android:id="@+id/perfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/citas"
+        android:text="@string/perfil"
+        android:textColor="@color/white"
         android:textSize="23sp"
         android:textStyle="bold"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        />
+
 
     <LinearLayout
-        android:id="@+id/linearlayout"
-        android:layout_width="match_parent"
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/borde_redondeado"
+        android:gravity="left"
         android:orientation="vertical"
-        android:padding="20dp"
-
+        android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvCitas">
-
-        <EditText
-            android:id="@+id/sphorario"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:clickable="false"
-            android:focusable="false"
-            android:hint="@string/fechaCalendario"
+        app:layout_constraintTop_toBottomOf="@+id/perfil">
 
 
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvCitas"
+        <ImageView
+            android:id="@+id/imagenperfil"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginBottom="16dp"
 
-            />
-
-        <EditText
-            android:id="@+id/etdni"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:hint="@string/dni"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/nombre"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sphorario"
+            app:layout_constraintTop_toBottomOf="@+id/perfil"
+            tools:src="@drawable/icono" />
 
-            />
 
         <EditText
-            android:id="@+id/etnombre"
+            android:id="@+id/nombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
             android:hint="@string/nombre"
-
+            android:inputType="text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etdni"
-
-            />
+            app:layout_constraintTop_toBottomOf="@+id/imagenperfil" />
 
         <EditText
-            android:id="@+id/etapellido"
+            android:id="@+id/apellidos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
             android:hint="@string/apellido"
+            android:inputType="text"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etnombre"
-
-            />
+            app:layout_constraintTop_toBottomOf="@+id/nombre" />
 
         <EditText
-            android:id="@+id/etnombreemascota"
+            android:id="@+id/correo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:hint="@string/mascota"
+            android:hint="@string/correo2"
+            android:inputType="text"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etapellido"
-
-            />
+            app:layout_constraintTop_toBottomOf="@+id/apellidos" />
 
         <EditText
-            android:id="@+id/ettelefono"
+            android:id="@+id/telefono"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
             android:hint="@string/telefono"
-
+            android:inputType="phone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etnombremascota"
-
-            />
+            app:layout_constraintTop_toBottomOf="@+id/correo" />
 
         <Button
+            android:id="@+id/mascota"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/red"
-            android:gravity="center"
-            android:text="@string/guardar"
+            android:backgroundTint="@color/naranja_clarito"
+            android:text="@string/mascota"
+            android:textColor="@color/black"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ettelefono"
-
-            />
+            app:layout_constraintTop_toBottomOf="@+id/telefono" />
 
     </LinearLayout>
 
