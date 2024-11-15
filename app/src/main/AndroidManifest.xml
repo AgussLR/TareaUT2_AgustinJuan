@@ -23,7 +23,9 @@
 
             android:exported="true"
 
+
             android:label="HAKUNA MATATA">
+
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -4,10 +4,11 @@ import android.content.Context
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.preference.ListPreference
 import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.PreferenceManager
 import androidx.preference.SwitchPreferenceCompat
-//import com.example.hakunamatata.databinding.ConfiguracionBinding
-
+import java.util.Locale
 
 class ConfiguracionFragment : PreferenceFragmentCompat() {
 
@@ -15,8 +16,6 @@ class ConfiguracionFragment : PreferenceFragmentCompat() {
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.conf, rootKey)
-
-
 
         // Cargar la preferencia de modo oscuro de SharedPreferences
         val sharedPreferences = requireActivity().getSharedPreferences("settings", Context.MODE_PRIVATE)
@@ -27,16 +26,25 @@ class ConfiguracionFragment : PreferenceFragmentCompat() {
         // ---------
 
         // Idiomas switch
-        val switchIdiomas = findPreference<SwitchPreferenceCompat>("switch_idiomas")
-        switchIdiomas?.setOnPreferenceChangeListener { _, newValue ->
-            val isChecked = newValue as Boolean
-            if (isChecked) {
-                Toast.makeText(requireContext(), "Idiomas activados", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(requireContext(), "Idiomas desactivados", Toast.LENGTH_SHORT).show()
+
+        val listPreferenceIdiomas = findPreference<ListPreference>("lista_idiomas")
+        listPreferenceIdiomas?.setOnPreferenceChangeListener { _, newValue ->
+            val idiomaSeleccionado = newValue as String
+            when (idiomaSeleccionado) {
+                "es" -> {
+                    Toast.makeText(requireContext(), "Idioma cambiado a Español", Toast.LENGTH_SHORT).show()
+                    setLocale("es")
+                }
+                "en" -> {
+                    Toast.makeText(requireContext(), "Idioma cambiado a Inglés", Toast.LENGTH_SHORT).show()
+                    setLocale("en")
+                }
+
             }
-            true // Devuelve true para guardar el estado
+            true // Devuelve true para guardar el cambio.
         }
+
+
 
         // Notificaciones switch
         val switchNotificaciones = findPreference<SwitchPreferenceCompat>("switch_notificaciones")
@@ -70,5 +78,20 @@ class ConfiguracionFragment : PreferenceFragmentCompat() {
         }
     }
 
+
+    private fun setLocale(languageCode: String) {
+        val locale = Locale(languageCode)
+        Locale.setDefault(locale)
+
+        val config = resources.configuration
+        config.setLocale(locale)
+        resources.updateConfiguration(config, resources.displayMetrics)
+
+
+        // Forzar reinicio de la actividad
+        val refreshIntent = requireActivity().intent
+        requireActivity().finish()
+        startActivity(refreshIntent)
+    }
 
 }

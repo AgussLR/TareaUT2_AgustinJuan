@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Hakuna Matata</string>
+    <string name="inputNombre">Name</string>
+    <string name="inputContraseña">Password</string>
+    <string name="iniciarSesion">Log In</string>
+    <string name="perfil">PROFILE</string>
+    <string name="citas">Add your appointments:</string>
+    <string name="dni">ID</string>
+    <string name="correo2">Email</string>
+    <string name="nombre">Name</string>
+    <string name="apellido">Surname</string>
+    <string name="mascota">Pet</string>
+    <string name="telefono">Phone</string>
+    <string name="guardar">Save</string>
+    <string name="configuracion">Settings</string>
+    <string name="cambiarContraseña">Change Password</string>
+    <string name="idiomas">Languages</string>
+    <string name="notificaciones">Notifications</string>
+    <string name="modoOscuro">Dark/Light Mode</string>
+
+    <!-- Strings for the contacts screen -->
+    <string name="correo">EMAIL: hakuna.matata@gmail.com</string>
+    <string name="contactos">CONTACTS</string>
+    <string name="numTelf">PHONE: 123456789</string>
+    <string name="veterinario">VETERINARIAN: HAKUNA MATATA</string>
+    <string name="mapa">MAP</string>
+
+    <!-- Strings for the consultations screen -->
+    <string name="consultas">CONSULTATIONS</string>
+    <string name="NOMBRE">NAME</string>
+    <string name="descripcion">DESCRIPTION</string>
+    <string name="correo1">EMAIL</string>
+    <string name="TELEFONO">PHONE</string>
+    <string name="enviarConsulta">SEND CONSULTATION</string>
+
+    <!-- Strings for the appointments screen -->
+    <string name="CITAS">APPOINTMENTS</string>
+    <string name="eliminar">Delete</string>
+    <string name="editar">Edit</string>
+    <string name="añadir">Add appointment</string>
+    <string name="infoFotoMascota">Photo of @Pet</string>
+    <string name="nombreMascota">Pet</string>
+    <string name="fechaCita">Appointment date</string>
+
+    <!-- Strings for the calendar screen -->
+    <string name="calendario">Calendar</string>
+
+    <!-- Strings for the pets screen -->
+    <string name="tipoMascota">Dog</string>
+
+    <string name="fechaCalendario">Select your date</string>
+
+    <!-- Idiomas. -->
+    <string name="Idioma">Language Preferences</string>
+    <string name="cambiarIdioma">Change Language</string>
+    <string name="descripcionIdioma">Select the language of the application</string>
+
+    <string name="Notificaciones">Notification Preferences</string>
+    <string name="cambiarNotificacion">Enable notifications</string>
+    <string name="descripcionNotificacion">Receive important alerts and updates.</string>
+
+    <string name="Oscuro">Theme Preferences</string>
+    <string name="cambiarOscuro">Dark Mode</string>
+    <string name="descripcionOscuro">Activate or deactivate dark mode.</string>
+</resources>

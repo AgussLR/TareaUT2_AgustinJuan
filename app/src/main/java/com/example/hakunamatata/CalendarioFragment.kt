@@ -6,11 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.hakunamatata.databinding.CalendarioBinding
-import com.example.hakunamatata.databinding.CitaAddBinding
 import java.text.SimpleDateFormat
 import java.util.Locale
 
-class CalendarioFragment: Fragment() {
+class CalendarioFragment : Fragment() {
 
     private lateinit var binding: CalendarioBinding
 
@@ -33,7 +32,6 @@ class CalendarioFragment: Fragment() {
                     Locale.getDefault()
                 ).parse("$year/${month + 1}/$dayOfMonth")!!
             )
-
 
         }
         return binding.root
