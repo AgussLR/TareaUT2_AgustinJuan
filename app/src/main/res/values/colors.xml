@@ -15,4 +15,19 @@
     <color name="purple_700">#3700B3</color>
     <color name="teal_200">#03DAC5</color>
     <color name="fondo">#a3e4d7</color>
+
+    <!-- Colores para el tema claro -->
+    <color name="colorPrimaryLight">#6200EE</color>
+    <color name="colorPrimaryDarkLight">#3700B3</color>
+    <color name="colorAccentLight">#03DAC5</color>
+    <color name="textColorPrimaryLight">#000000</color>
+    <color name="backgroundColorLight">#FFFFFF</color>
+
+    <!-- Colores para el tema oscuro -->
+    <color name="colorPrimaryDark">#BB86FC</color>
+    <color name="colorPrimaryDarkDark">#3700B3</color>
+    <color name="colorAccentDark">#03DAC5</color>
+    <color name="textColorPrimaryDark">#FFFFFF</color>
+    <color name="backgroundColorDark">#121212</color>
+
 </resources>

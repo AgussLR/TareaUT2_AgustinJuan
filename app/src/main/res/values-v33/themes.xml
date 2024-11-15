@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Base.Theme.HakunaMatata" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <item name="android:windowSplashScreenBackground">@color/white</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/fauget200</item>
+        <item name="android:windowSplashScreenBehavior">icon_preferred</item>
+    </style>
+
+    <!-- Tema claro -->
+    <style name="Theme.MyApp.Light" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Color de fondo y de texto para el tema claro -->
+        <item name="colorPrimary">@color/colorPrimaryLight</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkLight</item>
+        <item name="colorAccent">@color/colorAccentLight</item>
+        <item name="android:textColorPrimary">@color/textColorPrimaryLight</item>
+        <item name="android:windowBackground">@color/backgroundColorLight</item>
+    </style>
+
+    <!-- Tema oscuro -->
+    <style name="Theme.MyApp.Dark" parent="Theme.AppCompat">
+        <!-- Color de fondo y de texto para el tema oscuro -->
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkDark</item>
+        <item name="colorAccent">@color/colorAccentDark</item>
+        <item name="android:textColorPrimary">@color/textColorPrimaryDark</item>
+        <item name="android:windowBackground">@color/backgroundColorDark</item>
+    </style>
+
+</resources>

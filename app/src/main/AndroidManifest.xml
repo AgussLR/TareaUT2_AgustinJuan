@@ -13,6 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HakunaMatata"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCQr1Zaom_sn3CZ6SD3vA6_6-sQv8jy8q0" />
         <activity
 
             android:name=".MainActivity"
