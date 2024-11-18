@@ -18,6 +18,8 @@
     <string name="notificaciones">Notificaciones</string>
     <string name="modoOscuro">Modo Oscuro/Claro</string>
     <string name="guardar_perfil">GUARDAR PERFIL</string>
+    <string name="mascota_toast1">Mascota 1</string>
+    <string name="mascota_toast2">Mascota 2</string>
 
 
     <!-- Strings de la pantalla contactos -->
@@ -89,6 +91,17 @@
     <string name="menu_calendario">CALENDARIO</string>
     <string name="menu_contacto">CONTACTO</string>
     <string name="menu_conf">CONFIGURACIÓN</string>
+
+    <!-- Pantalla detalles mascotas -->
+
+    <string name="nombre_mascota">Nombre</string>
+    <string name="raza_mascota">Raza</string>
+    <string name="edad_mascota">Edad</string>
+    <string name="color_mascota">Color</string>
+    <string name="tipo_mascota">Tipo</string>
+    <string name="chip_mascota">MicroChip</string>
+
+    <string name="btn_guardar">GUARDAR</string>
 
 
 </resources>

@@ -1,28 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/primerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/primerLayout"
-    android:padding="30dp">
+    android:background="@color/background_light"
+    android:padding="20dp"
+    tools:context=".MainActivity">
 
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/primerLayout"
-        android:orientation="horizontal"
-        tools:ignore="MissingConstraints">
-
-
-    </androidx.cardview.widget.CardView>
-
+    <!-- Imagen central -->
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/imagePerro"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:src="@drawable/perro1"
-        tools:layout_editor_absoluteX="68dp"
-        tools:layout_editor_absoluteY="76dp" />
+        android:scaleType="centerCrop"
+        android:background="@drawable/borde_redondeado"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp" />
+
+    <!-- Contenedor de detalles -->
+    <LinearLayout
+        android:id="@+id/linearLayoutDetalles"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/borde_redondeado"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@id/imagePerro"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+
+        <EditText
+            android:id="@+id/chipMascota"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/chip_mascota"
+            android:background="@drawable/borde_edittext"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/text_hint"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/nombreMascota"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/nombre_mascota"
+            android:background="@drawable/borde_edittext"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/text_hint"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/razaMascota"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/raza_mascota"
+            android:background="@drawable/borde_edittext"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/text_hint"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/edadMascota"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/edad_mascota"
+            android:background="@drawable/borde_edittext"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/text_hint"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/colorMascota"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/color_mascota"
+            android:background="@drawable/borde_edittext"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/text_hint"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/tipoMascota"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/tipo_mascota"
+            android:background="@drawable/borde_edittext"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/text_hint"
+            android:layout_marginBottom="8dp" />
+
+    </LinearLayout>
+
+    <!-- Botón guardar -->
+    <Button
+        android:id="@+id/btnMascota"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/boton_gradiente"
+        android:padding="14dp"
+        android:text="@string/btn_guardar"
+        android:textColor="@color/button_text"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/linearLayoutDetalles"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

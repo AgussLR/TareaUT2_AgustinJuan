@@ -26,23 +26,15 @@ import androidx.preference.PreferenceManager
 import com.example.hakunamatata.databinding.ActivityMainBinding
 import java.util.Locale
 
-
-import com.example.hakunamatata.databinding.ActivityMainBinding
-
-
 class MainActivity : AppCompatActivity() {
 
     private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
-    private lateinit var binding: ActivityMainBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
 
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -67,6 +59,17 @@ class MainActivity : AppCompatActivity() {
 
         // Modo oscuro aplicar.
         applyDarkModePreference()
+
+
+
+        // Maneja la opción de perfil del header del menú
+        val headerView = binding.navView.getHeaderView(0) // Obtiene la vista del encabezado
+        val profileImageView: ImageView = headerView.findViewById(R.id.header_image)
+
+        profileImageView.setOnClickListener {
+            navController.navigate(R.id.nav_perfil) // Navegar al fragmento de perfil
+            binding.drawerLayout.closeDrawers() // Cerrar el menú
+        }
 
 
     }
@@ -111,7 +114,7 @@ class MainActivity : AppCompatActivity() {
             binding.drawerLayout.closeDrawers() // Cerrar el menú
             true
         }
-
+    }
 
     private fun applyDarkModePreference() {
 
@@ -124,20 +127,6 @@ class MainActivity : AppCompatActivity() {
             if (isDarkModeEnabled) AppCompatDelegate.MODE_NIGHT_YES
             else AppCompatDelegate.MODE_NIGHT_NO
         )
-    }
-
-
-}
-
-        // Maneja la opción de perfil del header del menú
-        val headerView = binding.navView.getHeaderView(0) // Obtiene la vista del encabezado
-        val profileImageView: ImageView = headerView.findViewById(R.id.header_image)
-
-        profileImageView.setOnClickListener {
-            navController.navigate(R.id.nav_perfil) // Navegar al fragmento de perfil
-            binding.drawerLayout.closeDrawers() // Cerrar el menú
-        }
-
     }
 
 
@@ -155,7 +144,4 @@ class MainActivity : AppCompatActivity() {
             binding.drawerLayout
         ) || super.onSupportNavigateUp()
     }
-
-
-
 }
