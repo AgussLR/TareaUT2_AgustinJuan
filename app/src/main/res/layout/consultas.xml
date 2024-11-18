@@ -8,19 +8,6 @@
     android:padding="70dp"
     tools:context=".MainActivity">
 
-
-
-
-    <EditText
-        android:id="@+id/inputDNI"
-        android:layout_width="148dp"
-        android:layout_height="48dp"
-        android:hint="@string/dni"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/main" />
-
     <TextView
         android:id="@+id/contactosTitulo"
         android:layout_width="wrap_content"

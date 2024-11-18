@@ -30,4 +30,36 @@
     <color name="textColorPrimaryDark">#FFFFFF</color>
     <color name="backgroundColorDark">#121212</color>
 
+
+
+
+
+
+
+
+
+
+
+    <!-- Colores principales -->
+    <color name="primary">#6200EE</color> <!-- Morado vibrante (botones principales) -->
+    <color name="primary_light">#BB86FC</color> <!-- Morado claro para destacar -->
+    <color name="secondary">#03DAC5</color> <!-- Verde azulado (acentos) -->
+    <color name="error_red">#CF6679</color> <!-- Rojo suave (errores) -->
+
+    <!-- Fondo y superficies -->
+    <color name="background_light">#F5F5F5</color> <!-- Fondo limpio -->
+    <color name="surface">#FFFFFF</color> <!-- Contenedores y tarjetas -->
+    <color name="border_color">#E0E0E0</color> <!-- Bordes y divisores -->
+
+    <!-- Texto -->
+    <color name="text_primary">#1E1E1E</color> <!-- Texto principal -->
+    <color name="text_secondary">#757575</color> <!-- Texto secundario -->
+    <color name="text_hint">#9E9E9E</color> <!-- Placeholder -->
+
+    <!-- Sombras -->
+    <color name="shadow">#33000000</color> <!-- Sombra translúcida -->
+
+    <!-- Botón -->
+    <color name="button_text">#FFFFFF</color> <!-- Texto dentro de botones -->
+
 </resources>

@@ -18,6 +18,9 @@
     <string name="idiomas">Languages</string>
     <string name="notificaciones">Notifications</string>
     <string name="modoOscuro">Dark/Light Mode</string>
+    <string name="guardar_perfil">SAVE PROFILE</string>
+    <string name="mascota_toast1">Pet 1</string>
+    <string name="mascota_toast2">Pet 2</string>
 
     <!-- Strings for the contacts screen -->
     <string name="correo">EMAIL: hakuna.matata@gmail.com</string>
@@ -63,4 +66,30 @@
     <string name="Oscuro">Theme Preferences</string>
     <string name="cambiarOscuro">Dark Mode</string>
     <string name="descripcionOscuro">Activate or deactivate dark mode.</string>
+
+    <!-- SIDE MENU -->
+    <string name="open_drawer">Open menu</string>
+    <string name="close_drawer">Close menu</string>
+    <string name="header_image_desc">Profile image</string>
+    <string name="username">Username</string>
+    <string name="menu_perfil">PROFILE</string>
+    <string name="menu_citas">APPOINTMENTS</string>
+    <string name="menu_mascotas">PETS</string>
+    <string name="menu_consultas">CONSULTATIONS</string>
+    <string name="menu_calendario">CALENDAR</string>
+    <string name="menu_contacto">CONTACT</string>
+    <string name="menu_conf">SETTINGS</string>
+
+    <!-- Pet Details Screen -->
+
+    <string name="nombre_mascota">Name</string>
+    <string name="raza_mascota">Breed</string>
+    <string name="edad_mascota">Age</string>
+    <string name="color_mascota">Color</string>
+    <string name="tipo_mascota">Type</string>
+    <string name="chip_mascota">MicroChip</string>
+
+    <string name="btn_guardar">SAVE</string>
+
+
 </resources>
