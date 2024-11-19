@@ -2,7 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Permiso para acceder a Internet -->
     <uses-permission android:name="android.permission.INTERNET"/>
+
+    <!-- Permiso para enviar notificaciones (Android 13+) -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -18,28 +23,15 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCQr1Zaom_sn3CZ6SD3vA6_6-sQv8jy8q0" />
         <activity
-
             android:name=".MainActivity"
-
             android:exported="true"
-
-
             android:label="HAKUNA MATATA">
-
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
     </application>
 
 </manifest>
-
-    <!-- Para iniciar citas
-                 android:name=".MainActivityCitas" -->
-    <!-- Para iniciar mascotas
-    android:name=".MainActivityMasc" -->
