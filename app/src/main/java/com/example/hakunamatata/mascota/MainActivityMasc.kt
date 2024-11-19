@@ -1,9 +1,12 @@
 package com.example.hakunamatata.mascota
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.hakunamatata.DetallesMascFragment
 import com.example.hakunamatata.databinding.MascotasBinding
 
 class MainActivityMasc : AppCompatActivity() {
@@ -27,5 +30,7 @@ class MainActivityMasc : AppCompatActivity() {
 
         // Asignar el adaptador al RecyclerView
         binding.recyclerView.adapter = RecyclerMascViewAdapter(items)
+
     }
+
 }

@@ -26,7 +26,7 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        loadPerfil()
+        /*loadPerfil()*/
         // Navegar a MascotasFragment al hacer clic en el botón
         binding.mascota.setOnClickListener {
             findNavController().navigate(R.id.mascotasFragment)
@@ -34,7 +34,7 @@ class ProfileFragment : Fragment() {
     }
 
     // Método para cargar datos del perfil
-    private fun loadPerfil() {
+   /* private fun loadPerfil() {
         lifecycleScope.launch {
             try {
                 val response = RetrofitInstance.api.getPerfil()  // Llama al endpoint de perfil
@@ -60,6 +60,6 @@ class ProfileFragment : Fragment() {
                 Log.e("Network Error", "Exception: $e")
             }
         }
-    }
+    }*/
 
 }

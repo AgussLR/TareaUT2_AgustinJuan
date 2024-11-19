@@ -36,7 +36,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -59,7 +58,6 @@ class MainActivity : AppCompatActivity() {
 
         // Modo oscuro aplicar.
         applyDarkModePreference()
-
 
 
         // Maneja la opción de perfil del header del menú
@@ -109,6 +107,9 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.menu_conf -> {
                     navController.navigate(R.id.nav_conf) // Navegar al fragmento configuración
+                }
+                R.id.nav_mascotas -> {
+                    navController.navigate(R.id.nav_detalles_mascota) // Navegar al fragmento de detalles_mascota
                 }
             }
             binding.drawerLayout.closeDrawers() // Cerrar el menú
