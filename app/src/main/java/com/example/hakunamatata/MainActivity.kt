@@ -91,7 +91,7 @@ class MainActivity : AppCompatActivity() {
         binding.navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.menu_citas -> {
-                    navController.navigate(R.id.nav_citas) // Navegar al fragmento de citas
+                    navController.navigate(R.id.CitaFragment) // Navegar al fragmento de citas
                 }
                 R.id.menu_consultas -> {
                     navController.navigate(R.id.nav_consultas) // Navegar al fragmento de consultas
@@ -100,16 +100,13 @@ class MainActivity : AppCompatActivity() {
                     navController.navigate(R.id.nav_contacto) // Navegar al fragmento contactos
                 }
                 R.id.menu_mascotas -> {
-                    navController.navigate(R.id.nav_mascotas) // Navegar al fragmento mascotas
+                    navController.navigate(R.id.mascotasFragment) // Navegar al fragmento mascotas
                 }
                 R.id.menu_calendario -> {
                     navController.navigate(R.id.nav_calendario) // Navegar al fragmento calendario
                 }
                 R.id.menu_conf -> {
                     navController.navigate(R.id.nav_conf) // Navegar al fragmento configuración
-                }
-                R.id.nav_mascotas -> {
-                    navController.navigate(R.id.nav_detalles_mascota) // Navegar al fragmento de detalles_mascota
                 }
             }
             binding.drawerLayout.closeDrawers() // Cerrar el menú

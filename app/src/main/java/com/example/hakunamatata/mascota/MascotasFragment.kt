@@ -6,10 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hakunamatata.DetallesMascFragment
 import com.example.hakunamatata.R
 import com.example.hakunamatata.databinding.MascotasBinding
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MascotasFragment : Fragment() {
 
@@ -28,6 +30,15 @@ class MascotasFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val fab: FloatingActionButton = view.findViewById(R.id.floatingButtonMascota)
+        fab.setOnClickListener {
+            // Navega al fragmento de detalles de mascota
+            findNavController().navigate(R.id.action_mascotasFragment_to_detallesMascFragment)
+        }
+    }
 
     private fun setupRecyclerView() {
         // Configurar el RecyclerView para mostrar la lista de mascotas
