@@ -97,7 +97,7 @@ class MainActivity : AppCompatActivity() {
                     navController.navigate(R.id.nav_consultas) // Navegar al fragmento de consultas
                 }
                 R.id.menu_contacto -> {
-                    navController.navigate(R.id.nav_contacto) // Navegar al fragmento contactos
+                    navController.navigate(R.id.ContactosFragment) // Navegar al fragmento contactos
                 }
                 R.id.menu_mascotas -> {
                     navController.navigate(R.id.mascotasFragment) // Navegar al fragmento mascotas
