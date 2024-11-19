@@ -16,7 +16,7 @@
             tools:layout_editor_absoluteY="71dp" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingButtonMascota"
+            android:id="@+id/floatingButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="30dp"
