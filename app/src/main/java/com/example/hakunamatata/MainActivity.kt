@@ -1,20 +1,25 @@
 package com.example.hakunamatata
 
+import android.app.AlertDialog
 import android.content.Context
+import android.content.pm.PackageManager
 import android.content.res.Configuration
+import android.os.Build
 import android.os.Bundle
-
+import android.Manifest
 
 import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.ActionBarDrawerToggle
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.findFragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -44,10 +49,6 @@ class MainActivity : AppCompatActivity() {
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
 
-//        // Configurar la Toolbar como barra de acción
-//        val toolbar: Toolbar = findViewById(R.id.toolbar)
-//        setSupportActionBar(toolbar)
-
         // Configurar menu toogle
         configureToggleMenu()
         // Configurar la navegación
@@ -59,6 +60,8 @@ class MainActivity : AppCompatActivity() {
         // Modo oscuro aplicar.
         applyDarkModePreference()
 
+        // Verificar y solicitar permisos
+        verificarPermisoNotificaciones()
 
         // Maneja la opción de perfil del header del menú
         val headerView = binding.navView.getHeaderView(0) // Obtiene la vista del encabezado
@@ -68,7 +71,6 @@ class MainActivity : AppCompatActivity() {
             navController.navigate(R.id.nav_perfil) // Navegar al fragmento de perfil
             binding.drawerLayout.closeDrawers() // Cerrar el menú
         }
-
 
     }
 
@@ -141,5 +143,65 @@ class MainActivity : AppCompatActivity() {
             NavHostFragment.findNavController(binding.navView.findFragment()),
             binding.drawerLayout
         ) || super.onSupportNavigateUp()
+    }
+
+    private fun verificarPermisoNotificaciones() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            // Verificar si ya tenemos el permiso
+            if (ContextCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.POST_NOTIFICATIONS
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                // Mostrar un diálogo explicativo antes de solicitar el permiso
+                mostrarDialogoPermiso()
+            }
+        }
+    }
+
+    private fun mostrarDialogoPermiso() {
+        AlertDialog.Builder(this)
+            .setTitle("Permiso para notificaciones")
+            .setMessage("Esta aplicación necesita tu permiso para enviarte notificaciones importantes.")
+            .setPositiveButton("Aceptar") { _, _ ->
+                // Solicitar el permiso
+                solicitarPermisoNotificaciones()
+            }
+            .setNegativeButton("Cancelar") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
+    }
+
+    private fun solicitarPermisoNotificaciones() {
+        val solicitarPermisoLauncher = registerForActivityResult(
+            ActivityResultContracts.RequestPermission()
+        ) { isGranted: Boolean ->
+            if (isGranted) {
+                // Permiso concedido
+                mostrarNotificacionPermisoConcedido()
+            } else {
+                // Permiso denegado
+                mostrarDialogoPermisoDenegado()
+            }
+        }
+
+        solicitarPermisoLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+    }
+
+    private fun mostrarNotificacionPermisoConcedido() {
+        AlertDialog.Builder(this)
+            .setTitle("¡Gracias!")
+            .setMessage("Ahora puedes recibir notificaciones de nuestra aplicación.")
+            .setPositiveButton("Aceptar") { dialog, _ -> dialog.dismiss() }
+            .show()
+    }
+
+    private fun mostrarDialogoPermisoDenegado() {
+        AlertDialog.Builder(this)
+            .setTitle("Permiso denegado")
+            .setMessage("No podrás recibir notificaciones si no otorgas el permiso.")
+            .setPositiveButton("Aceptar") { dialog, _ -> dialog.dismiss() }
+            .show()
     }
 }
