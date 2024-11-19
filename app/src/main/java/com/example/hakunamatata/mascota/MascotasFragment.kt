@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.hakunamatata.DetallesMascFragment
+import com.example.hakunamatata.R
 import com.example.hakunamatata.databinding.MascotasBinding
 
 class MascotasFragment : Fragment() {
@@ -40,4 +42,5 @@ class MascotasFragment : Fragment() {
         // Asignar el adaptador al RecyclerView
         binding.recyclerView.adapter = RecyclerMascViewAdapter(items)
     }
+
 }

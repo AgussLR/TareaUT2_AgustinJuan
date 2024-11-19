@@ -42,7 +42,8 @@ android {
 
 dependencies {
 
-    implementation(libs.material.calendarview)
+    implementation("com.applandeo:material-calendar-view:1.9.2")
+
     implementation("com.google.android.gms:play-services-maps:19.0.0")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
