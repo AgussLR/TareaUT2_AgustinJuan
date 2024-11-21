@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@id/CitaFragment">
+    app:startDestination="@id/nav_login">
 
     <fragment
         android:id="@+id/profileFragment"
@@ -65,6 +65,11 @@
         android:name="com.example.hakunamatata.ConfiguracionFragment"
         android:label="@string/configuracion"
         tools:xml="@xml/conf" />
+
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="com.example.hakunamatata.LoginFragment"
+        tools:xml="@layout/login" />
 
     <fragment
         android:id="@+id/detallesMascFragment"
