@@ -1,37 +1,45 @@
 package com.example.hakunamatata
 
 import android.content.Context
-import android.content.res.Configuration
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
-
-
+import android.Manifest
+import android.content.SharedPreferences
 import android.view.MenuItem
-import android.view.View
-import android.widget.Button
-import android.widget.EditText
 import android.widget.ImageView
+import android.widget.Switch
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.ActionBarDrawerToggle
-
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.findFragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.setupActionBarWithNavController
-
-import androidx.preference.PreferenceFragmentCompat
-import androidx.preference.PreferenceManager
 import com.example.hakunamatata.databinding.ActivityMainBinding
-import java.util.Locale
+import com.example.hakunamatata.notificaciones.NotificationHelper
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
+    private lateinit var preferences: SharedPreferences
 
+    private val requestPermissionLauncher =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
+            if (isGranted) {
+                // El permiso fue concedido, puedes enviar notificaciones
+                showPermissionGrantedMessage()
+                sendSampleNotification()
+            } else {
+                // El permiso fue denegado, muestra un mensaje al usuario
+                showPermissionDeniedMessage()
+            }
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,10 +52,6 @@ class MainActivity : AppCompatActivity() {
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
 
-//        // Configurar la Toolbar como barra de acción
-//        val toolbar: Toolbar = findViewById(R.id.toolbar)
-//        setSupportActionBar(toolbar)
-
         // Configurar menu toogle
         configureToggleMenu()
         // Configurar la navegación
@@ -59,6 +63,19 @@ class MainActivity : AppCompatActivity() {
         // Modo oscuro aplicar.
         applyDarkModePreference()
 
+        // Inicializar SharedPreferences
+        preferences = getSharedPreferences("app_preferences", Context.MODE_PRIVATE)
+
+        // Verificar permisos si las notificaciones están activadas
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
+            ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.POST_NOTIFICATIONS
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            // Solicitar permiso
+            requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+        }
 
         // Maneja la opción de perfil del header del menú
         val headerView = binding.navView.getHeaderView(0) // Obtiene la vista del encabezado
@@ -68,7 +85,6 @@ class MainActivity : AppCompatActivity() {
             navController.navigate(R.id.nav_perfil) // Navegar al fragmento de perfil
             binding.drawerLayout.closeDrawers() // Cerrar el menú
         }
-
 
     }
 
@@ -97,7 +113,7 @@ class MainActivity : AppCompatActivity() {
                     navController.navigate(R.id.nav_consultas) // Navegar al fragmento de consultas
                 }
                 R.id.menu_contacto -> {
-                    navController.navigate(R.id.nav_contacto) // Navegar al fragmento contactos
+                    navController.navigate(R.id.ContactosFragment) // Navegar al fragmento contactos
                 }
                 R.id.menu_mascotas -> {
                     navController.navigate(R.id.mascotasFragment) // Navegar al fragmento mascotas
@@ -142,4 +158,22 @@ class MainActivity : AppCompatActivity() {
             binding.drawerLayout
         ) || super.onSupportNavigateUp()
     }
+
+    private fun showPermissionGrantedMessage() {
+        Toast.makeText(this, "Permiso para notificaciones concedido", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun showPermissionDeniedMessage() {
+        Toast.makeText(this, "Permiso para notificaciones denegado. No podrás recibir alertas.", Toast.LENGTH_LONG).show()
+    }
+
+    private fun sendSampleNotification() {
+        val notificationHelper = NotificationHelper(this)
+        notificationHelper.showNotification(
+            title = "Prueba de notificación",
+            message = "¡Gracias por conceder el permiso!",
+            notificationId = 1
+        )
+    }
+
 }

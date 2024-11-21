@@ -47,10 +47,18 @@
         tools:layout="@layout/consultas" />
 
     <fragment
-        android:id="@+id/nav_contacto"
-        android:name="com.example.hakunamatata.contacto.ContactoFragment"
-        android:label="@string/consultas"
-        tools:layout="@layout/contactos" />
+        android:id="@+id/MapaFragment"
+        android:name="com.example.hakunamatata.MapFragment"
+        android:label="@string/mapa" />
+
+    <fragment
+        android:id="@+id/ContactosFragment"
+        android:name="com.example.hakunamatata.contacto.ContactosFragment"
+        android:label="CONTACTOS">
+        <action
+            android:id="@+id/action_ContactosFragment_to_DetallesContactosFragment"
+            app:destination="@id/MapaFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_conf"
