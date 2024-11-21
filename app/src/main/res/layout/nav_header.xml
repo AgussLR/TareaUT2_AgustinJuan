@@ -16,17 +16,6 @@
         android:src="@drawable/icono" />
 
     <TextView
-        android:id="@+id/header_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/username"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        android:layout_marginTop="8dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="30dp"/>
-
-    <TextView
         android:id="@+id/header_subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
