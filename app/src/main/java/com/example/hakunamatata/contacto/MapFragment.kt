@@ -1,4 +1,4 @@
-package com.example.hakunamatata
+package com.example.hakunamatata.contacto
 
 import android.graphics.Color
 import android.os.Bundle
@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.hakunamatata.databinding.CalendarioBinding
 import com.example.hakunamatata.databinding.MapsBinding
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap

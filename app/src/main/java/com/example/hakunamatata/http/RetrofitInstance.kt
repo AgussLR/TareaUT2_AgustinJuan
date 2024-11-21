@@ -1,4 +1,4 @@
-package com.example.hakunamatata
+package com.example.hakunamatata.http
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

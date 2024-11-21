@@ -1,4 +1,4 @@
-package com.example.hakunamatata
+package com.example.hakunamatata.calendario
 
 import android.graphics.Color
 import android.os.Bundle
@@ -6,19 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.annotation.ColorInt
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.applandeo.materialcalendarview.CalendarDay
 import com.applandeo.materialcalendarview.listeners.OnCalendarDayClickListener
 import com.example.hakunamatata.databinding.CalendarioBinding
-import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Calendar.getInstance
-import java.util.Locale
-import com.applandeo.materialcalendarview.CalendarView
 import com.applandeo.materialcalendarview.EventDay
-import com.google.android.material.datepicker.DayViewDecorator
+import com.example.hakunamatata.R
 
 
 class CalendarioFragment : Fragment() {

@@ -1,5 +1,6 @@
-package com.example.hakunamatata
+package com.example.hakunamatata.http
 
+import com.example.hakunamatata.perfil.PerfilResponse
 import retrofit2.Response
 import retrofit2.http.GET
 
