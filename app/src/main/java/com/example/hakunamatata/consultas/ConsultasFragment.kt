@@ -6,10 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.hakunamatata.R
+import com.example.hakunamatata.databinding.ConsultasBinding
+import com.example.hakunamatata.databinding.DetallesMascotaBinding
 
 class ConsultasFragment : Fragment() {
-
+    private lateinit var binding: ConsultasBinding
     companion object {
         fun newInstance() = ConsultasFragment()
     }
@@ -26,6 +29,14 @@ class ConsultasFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.consultas, container, false)
+        binding = ConsultasBinding.inflate(inflater, container, false)
+
+        binding.enviarBoton.setOnClickListener{
+            Toast.makeText(requireContext(),"Consulta guardada",Toast.LENGTH_SHORT).show()
+        }
+
+
+
+        return binding.root
     }
 }

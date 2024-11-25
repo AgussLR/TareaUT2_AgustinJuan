@@ -16,6 +16,8 @@
         android:layout_height="150dp"
         android:src="@drawable/perro1"
         android:scaleType="centerCrop"
+        android:focusable="true"
+        android:clickable="true"
         android:background="@drawable/borde_redondeado"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"

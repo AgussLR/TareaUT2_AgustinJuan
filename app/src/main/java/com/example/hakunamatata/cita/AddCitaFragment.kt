@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.hakunamatata.DatePickerFragment
+import com.example.hakunamatata.cita.DatePickerFragment
 import com.example.hakunamatata.databinding.CitaAddBinding
 
 class AddCitaFragment: Fragment() {

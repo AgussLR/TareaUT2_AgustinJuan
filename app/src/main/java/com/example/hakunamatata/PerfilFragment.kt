@@ -28,7 +28,7 @@ class ProfileFragment : Fragment() {
 
         /*loadPerfil()*/
         // Navegar a MascotasFragment al hacer clic en el botón
-        binding.mascota.setOnClickListener {
+        binding.btnGuardarPerfil.setOnClickListener {
             findNavController().navigate(R.id.mascotasFragment)
         }
     }
