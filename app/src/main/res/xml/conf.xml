@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- Categoría Idiomas -->
     <PreferenceCategory android:title="@string/Idioma">
-
         <ListPreference
             android:icon="@drawable/language_24dp_5f6368_fill0_wght400_grad0_opsz24"
             android:key="lista_idiomas"
@@ -32,5 +32,4 @@
             android:summary="@string/descripcionOscuro"
             android:title="@string/descripcionOscuro" />
     </PreferenceCategory>
-
 </PreferenceScreen>

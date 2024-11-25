@@ -30,7 +30,7 @@
 
     <fragment
         android:id="@+id/nav_calendario"
-        android:name="com.example.hakunamatata.CalendarioFragment"
+        android:name="com.example.hakunamatata.calendario.CalendarioFragment"
         android:label="Calendario"
         tools:layout="@layout/calendario" />
 
@@ -48,7 +48,7 @@
 
     <fragment
         android:id="@+id/MapaFragment"
-        android:name="com.example.hakunamatata.MapFragment"
+        android:name="com.example.hakunamatata.contacto.MapFragment"
         android:label="@string/mapa" />
 
     <fragment
@@ -62,13 +62,13 @@
 
     <fragment
         android:id="@+id/nav_conf"
-        android:name="com.example.hakunamatata.ConfiguracionFragment"
+        android:name="com.example.hakunamatata.configuracion.ConfiguracionFragment"
         android:label="@string/configuracion"
         tools:xml="@xml/conf" />
 
     <fragment
         android:id="@+id/nav_login"
-        android:name="com.example.hakunamatata.LoginFragment"
+        android:name="com.example.hakunamatata.login.LoginFragment"
         tools:xml="@layout/login" />
 
     <fragment
