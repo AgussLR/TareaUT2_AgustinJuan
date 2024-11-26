@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hakunamatata.R
@@ -35,24 +34,27 @@ class CitaFragment : Fragment() {
         val fab: FloatingActionButton = view.findViewById(R.id.floatingButtonCitas)
         fab.setOnClickListener {
             // Navega al fragmento de detalles de mascota
-            findNavController().navigate(R.id.action_CitaFragment_to_detallesCitaFragment)
+            findNavController().navigate(R.id.action_CitaFragment_to_AddCitaFragment)
         }
     }
 
     private fun setupRecyclerView() {
-        // Configurar el RecyclerView para mostrar la lista de citas
-        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
-
-        binding.recyclerView.setOnClickListener{
-            Toast.makeText(requireContext(),"Hola  mundooooooo",Toast.LENGTH_SHORT).show()
-        }
         // Datos de prueba para el RecyclerView
         val items = listOf(
-            CitaData("", "Mascota 1", ""),
-            CitaData("", "Mascota 2", "")
+            CitaData("", "Cita 1", ""),
+            CitaData("", "Cita 2", "")
         )
 
-        // Asignar el adaptador al RecyclerView
-        binding.recyclerView.adapter = RecyclerViewAdapter(items)
+        // Configurar el RecyclerView
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerView.adapter = RecyclerViewAdapter(items) { citaData ->
+            // Crear un bundle para pasar datos al fragmento destino
+            val bundle = Bundle().apply {
+                putString("citaText", citaData.textMascota)
+            }
+
+            // Navegar al fragmento "Añadir Citas" pasando el bundle
+            findNavController().navigate(R.id.action_CitaFragment_to_AddCitaFragment, bundle)
+        }
     }
 }

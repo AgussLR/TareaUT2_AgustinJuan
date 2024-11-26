@@ -13,17 +13,20 @@ class DatePickerFragment(val listener: (day: Int, month: Int, year: Int) -> Unit
     DialogFragment(), DatePickerDialog.OnDateSetListener {
 
 
-    override fun onDateSet(view: DatePicker, year: Int, month: Int, day: Int) {
+    override fun onDateSet(view: DatePicker?, year: Int, month: Int, day: Int) {
         listener(day, month, year)
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val c = Calendar.getInstance()
-        val year = c.get(Calendar.YEAR)
-        val month = c.get(Calendar.MONTH)
-        val day = c.get(Calendar.DAY_OF_MONTH)
+        val c:Calendar = Calendar.getInstance()
+        val day:Int = c.get(Calendar.DAY_OF_MONTH)
+        val month:Int = c.get(Calendar.MONTH)
+        val year:Int = c.get(Calendar.YEAR)
+
         val picker = DatePickerDialog(activity as Context,
             R.style.datePickerTheme, this, year, month, day)
+
+        picker.datePicker.minDate = c.timeInMillis
         return picker
     }
 
