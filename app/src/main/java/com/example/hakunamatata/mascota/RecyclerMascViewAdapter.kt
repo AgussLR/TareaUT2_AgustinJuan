@@ -4,9 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.hakunamatata.cita.CitaData
 import com.example.hakunamatata.databinding.ItemsMascotaBinding
 
-class RecyclerMascViewAdapter(private val items: List<MascotaData>) :
+class RecyclerMascViewAdapter(private val items: List<MascotaData>, private val onItemClicked: (MascotaData) -> Unit) :
     RecyclerView.Adapter<MascotaViewHolder>() {
 
     // Método que crea el ViewHolder
@@ -24,12 +25,7 @@ class RecyclerMascViewAdapter(private val items: List<MascotaData>) :
 
         // Manejar el evento de clic
         holder.itemView.setOnClickListener {
-            Toast.makeText(
-                holder.itemView.context,
-                "Clic en: ${currentItem.textNombreMascota}",
-                Toast.LENGTH_SHORT
-            ).show()
-
+            onItemClicked(currentItem)
         }
     }
 

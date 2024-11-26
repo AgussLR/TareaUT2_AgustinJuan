@@ -10,6 +10,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hakunamatata.DetallesMascFragment
 import com.example.hakunamatata.R
+import com.example.hakunamatata.cita.CitaData
+import com.example.hakunamatata.cita.RecyclerViewAdapter
 import com.example.hakunamatata.databinding.MascotasBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
@@ -41,17 +43,23 @@ class MascotasFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        // Configurar el RecyclerView para mostrar la lista de mascotas
-        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
-
         // Datos de prueba para el RecyclerView
         val items = listOf(
             MascotaData("", "Mascota 1", ""),
             MascotaData("", "Mascota 2", "")
         )
 
-        // Asignar el adaptador al RecyclerView
-        binding.recyclerView.adapter = RecyclerMascViewAdapter(items)
+        // Configurar el RecyclerView
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerView.adapter = RecyclerMascViewAdapter(items) { MascotaData ->
+            // Crear un bundle para pasar datos al fragmento destino
+            val bundle = Bundle().apply {
+                putString("mascotaText", MascotaData.textNombreMascota)
+            }
+
+            // Navegar al fragmento "Añadir Citas" pasando el bundle
+            findNavController().navigate(R.id.action_mascotasFragment_to_detallesMascFragment, bundle)
+        }
     }
 
 }

@@ -14,9 +14,9 @@
     </fragment>
 
     <fragment
-        android:id="@+id/detallesCitaFragment"
-        android:name="com.example.hakunamatata.cita.DetallesCitasFragment"
-        android:label="Detalles Citas"
+        android:id="@+id/AddCitaFragment"
+        android:name="com.example.hakunamatata.cita.AddCitaFragment"
+        android:label="Añadir Citas"
         tools:layout="@layout/cita_add" />
 
     <fragment
@@ -24,8 +24,8 @@
         android:name="com.example.hakunamatata.cita.CitaFragment"
         android:label="CITAS">
         <action
-            android:id="@+id/action_CitaFragment_to_detallesCitaFragment"
-            app:destination="@id/detallesCitaFragment" />
+            android:id="@+id/action_CitaFragment_to_AddCitaFragment"
+            app:destination="@id/AddCitaFragment" />
     </fragment>
 
     <fragment
@@ -85,5 +85,8 @@
             android:id="@+id/action_mascotasFragment_to_detallesMascFragment"
             app:destination="@id/detallesMascFragment" />
     </fragment>
+
+
+
 
 </navigation>

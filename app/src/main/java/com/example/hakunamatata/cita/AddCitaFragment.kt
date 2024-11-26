@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.hakunamatata.cita.DatePickerFragment
 import com.example.hakunamatata.databinding.CitaAddBinding
 
 class AddCitaFragment: Fragment() {
@@ -31,7 +30,7 @@ class AddCitaFragment: Fragment() {
         datePicker.show(parentFragmentManager,"datePicker")
     }
 
-    fun onDateSelected(day:Int,month:Int,year:Int){
+    private fun onDateSelected(day:Int,month:Int,year:Int){
         binding.sphorario.setText("$day/$month/$year")
     }
 
