@@ -1,29 +1,39 @@
 {
   "project_info": {
-    "project_number": "1082674249096",
-    "project_id": "notificacionpush-ccbcf",
-    "storage_bucket": "notificacionpush-ccbcf.firebasestorage.app"
+    "project_number": "867390512892",
+    "project_id": "authentication-c02f1",
+    "storage_bucket": "authentication-c02f1.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1082674249096:android:adb3fdf39277f26d14ce3d",
+        "mobilesdk_app_id": "1:867390512892:android:6150eb50ca809016c14179",
         "android_client_info": {
           "package_name": "com.example.hakunamatata"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "867390512892-6ftf0u1kr0c4elud87dfevu1oqpghqmk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyBjMaKoP2LI7gSq8s30WfGbHKS0eKCzC0Y"
+          "current_key": "AIzaSyBX713H0-f-UjRIpdLGzbv0q66r1hAv7jY"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "867390512892-6ftf0u1kr0c4elud87dfevu1oqpghqmk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
-    ],
+  ],
   "configuration_version": "1"
 }
