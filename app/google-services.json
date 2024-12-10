@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1082674249096",
+    "project_id": "notificacionpush-ccbcf",
+    "storage_bucket": "notificacionpush-ccbcf.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1082674249096:android:adb3fdf39277f26d14ce3d",
+        "android_client_info": {
+          "package_name": "com.example.hakunamatata"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjMaKoP2LI7gSq8s30WfGbHKS0eKCzC0Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+    ],
+  "configuration_version": "1"
+}
