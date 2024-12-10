@@ -43,6 +43,11 @@ android {
 
 dependencies {
 
+    implementation("com.firebaseui:firebase-ui-auth:7.2.0")
+
+    implementation(platform("com.google.firebase:firebase-bom:33.7.0"))
+    implementation("com.google.firebase:firebase-analytics")
+
     implementation("com.applandeo:material-calendar-view:1.9.2")
 
     implementation("com.google.android.gms:play-services-maps:19.0.0")
