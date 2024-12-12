@@ -43,10 +43,13 @@ android {
 
 dependencies {
 
-    implementation("com.firebaseui:firebase-ui-auth:7.2.0")
+    //FIRESTORE
 
-    implementation(platform("com.google.firebase:firebase-bom:33.7.0"))
-    implementation("com.google.firebase:firebase-analytics")
+    implementation ("com.firebaseui:firebase-ui-auth:7.2.0")
+
+    implementation(platform("com.google.firebase:firebase-bom:33.6.0"))
+    implementation("com.google.firebase:firebase-firestore")
+
 
     implementation("com.applandeo:material-calendar-view:1.9.2")
 

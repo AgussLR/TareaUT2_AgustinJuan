@@ -1,6 +1,6 @@
 package com.example.hakunamatata.perfil
 
-import android.Manifest
+import android.content.ContentValues.TAG
 import android.content.pm.PackageManager
 import android.net.Uri
 import androidx.fragment.app.viewModels
@@ -13,11 +13,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.example.hakunamatata.R
-import com.example.hakunamatata.databinding.FragmentProfileBinding
 import com.example.hakunamatata.databinding.PerfilBinding
+import com.google.firebase.Firebase
+import com.google.firebase.firestore.firestore
 import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream
@@ -26,6 +25,9 @@ class PerfilFragment : Fragment() {
     private lateinit var binding: PerfilBinding
     private val imageFileName = "profile_image.jpg"
     private var selectedImageUri: Uri? = null
+
+    //Firebase.
+    val db = Firebase.firestore
 
     // Código de solicitud de permiso
     private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
@@ -84,14 +86,17 @@ class PerfilFragment : Fragment() {
         }
 
 
-
         // Configurar el listener para guardar la imagen al presionar el botón
         binding.btnGuardarPerfil.setOnClickListener {
+            addPerfil()
             selectedImageUri?.let {
                 saveImageToFile(it) // Guardar la imagen seleccionada
             } ?: Log.d("PhotoPicker", "No image selected to save")
             Toast.makeText(requireContext(), "Perfil guardado", Toast.LENGTH_SHORT).show()
+
         }
+
+        getAllUsers()
 
         return binding.root
     }
@@ -124,6 +129,42 @@ class PerfilFragment : Fragment() {
             requireContext(),
             android.Manifest.permission.READ_MEDIA_IMAGES
         ) == PackageManager.PERMISSION_GRANTED
+    }
+
+    private fun addPerfil() {
+
+        val perfil = hashMapOf(
+            "first" to binding.nombre.text.toString(),
+            "last" to binding.apellidos.text.toString(),
+            "email" to binding.correo.text.toString(),
+            "telefono" to binding.telefono.text.toString(),
+        )
+
+
+        db.collection("perfiles")
+            .add(perfil)
+            .addOnSuccessListener { documentReference ->
+                Log.d(TAG, "Documento se ha guardado correctamente!!!")
+            }
+            .addOnFailureListener { e ->
+                Log.w(TAG, "Error añadiendo el documento.", e)
+            }
+
+    }
+
+
+    private fun getAllUsers() {
+        // [START get_all_users]
+        db.collection("perfiles")
+            .get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    Log.d(TAG, "${document.id} => ${document.data}")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w(TAG, "Error getting documents.", exception)
+            }
     }
 
 }
