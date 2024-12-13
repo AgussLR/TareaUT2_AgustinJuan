@@ -1,5 +1,6 @@
 package com.example.hakunamatata.mascota
 
+import android.content.ContentValues.TAG
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
@@ -14,6 +15,9 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.hakunamatata.R
 import com.example.hakunamatata.databinding.DetallesMascotaBinding
+import com.example.hakunamatata.perfil.PerfilData
+import com.google.firebase.Firebase
+import com.google.firebase.firestore.firestore
 import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream
@@ -23,6 +27,9 @@ class DetallesMascFragment : Fragment() {
     private lateinit var binding: DetallesMascotaBinding
     private val imageFileName = "detallesMasc_image.jpg"
     private var selectedImageUri: Uri? = null
+
+    //Firebase.
+    val db = Firebase.firestore
 
     // Código de solicitud de permiso
     private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
@@ -72,6 +79,7 @@ class DetallesMascFragment : Fragment() {
 
         // Configurar el listener para guardar la imagen al presionar el botón
         binding.btnMascota.setOnClickListener {
+            addDetallesMascota()
             selectedImageUri?.let {
                 saveImageToFile(it) // Guardar la imagen seleccionada
             } ?: Log.d("PhotoPicker", "No image selected to save")
@@ -107,6 +115,61 @@ class DetallesMascFragment : Fragment() {
             requireContext(),
             android.Manifest.permission.READ_MEDIA_IMAGES
         ) == PackageManager.PERMISSION_GRANTED
+    }
+
+    private fun addDetallesMascota() {
+        val microChip = binding.chipMascota.text.toString()
+
+        if (microChip.isEmpty()) {
+            Toast.makeText(requireContext(), "Por favor, introduce un número de microchip", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        db.collection("mascotas")
+            .whereEqualTo("microChip", microChip)
+            .get()
+            .addOnSuccessListener { result ->
+                if (!result.isEmpty) {
+                    // El microchip ya existe
+                    Toast.makeText(requireContext(), "Ya existe una mascota con este microchip", Toast.LENGTH_SHORT).show()
+                    Log.d(TAG, "Mascota con microchip $microChip ya existe")
+                } else {
+                    // El microchip no existe, proceder a crear la mascota
+                    createMascota(microChip)
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w(TAG, "Error verificando el microchip.", exception)
+                Toast.makeText(requireContext(), "Error al comprobar el microchip", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+    private fun createMascota(microChip: String) {
+        val edad = binding.edadMascota.text.toString().toIntOrNull()
+
+        if (edad == null) {
+            Toast.makeText(requireContext(), "La edad debe ser un número válido", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val mascota = DetallesMascData(
+            microChip,
+            binding.nombreMascota.text.toString(),
+            binding.razaMascota.text.toString(),
+            edad,
+            binding.colorMascota.text.toString(),
+            binding.tipoMascota.text.toString()
+        )
+
+        db.collection("mascotas")
+            .add(mascota)
+            .addOnSuccessListener { documentReference ->
+                Log.d(TAG, "Documento creado con ID: ${documentReference.id}")
+                Toast.makeText(requireContext(), "Mascota creada exitosamente", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener { e ->
+                Log.w(TAG, "Error añadiendo la mascota.", e)
+            }
     }
 
 }
