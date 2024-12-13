@@ -93,10 +93,7 @@ class PerfilFragment : Fragment() {
                 saveImageToFile(it) // Guardar la imagen seleccionada
             } ?: Log.d("PhotoPicker", "No image selected to save")
             Toast.makeText(requireContext(), "Perfil guardado", Toast.LENGTH_SHORT).show()
-
         }
-
-        getAllUsers()
 
         return binding.root
     }
@@ -132,38 +129,65 @@ class PerfilFragment : Fragment() {
     }
 
     private fun addPerfil() {
+        val correo = binding.correo.text.toString()
 
-        val perfil = hashMapOf(
-            "first" to binding.nombre.text.toString(),
-            "last" to binding.apellidos.text.toString(),
-            "email" to binding.correo.text.toString(),
-            "telefono" to binding.telefono.text.toString(),
+        // Verificar si el perfil ya existe basado en el correo
+        db.collection("perfiles")
+            .whereEqualTo("correo", correo) // Buscar por el correo como identificador único
+            .get()
+            .addOnSuccessListener { result ->
+                if (!result.isEmpty) {
+                    // Si existe, actualizamos el documento
+                    for (document in result) {
+                        val docId = document.id
+                        updatePerfil(docId)
+                    }
+                } else {
+                    // Si no existe, lo añadimos como nuevo
+                    createPerfil()
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w(TAG, "Error buscando el documento.", exception)
+            }
+    }
+
+    private fun createPerfil() {
+        val perfil = PerfilData(
+            binding.nombre.text.toString(),
+            binding.apellidos.text.toString(),
+            binding.correo.text.toString(),
+            binding.telefono.text.toString()
         )
-
 
         db.collection("perfiles")
             .add(perfil)
             .addOnSuccessListener { documentReference ->
-                Log.d(TAG, "Documento se ha guardado correctamente!!!")
+                Log.d(TAG, "Documento creado con ID: ${documentReference.id}")
+                Toast.makeText(requireContext(), "Perfil creado exitosamente", Toast.LENGTH_SHORT).show()
             }
             .addOnFailureListener { e ->
                 Log.w(TAG, "Error añadiendo el documento.", e)
             }
-
     }
 
+    private fun updatePerfil(docId: String) {
+        val updatedData = mapOf(
+            "nombre" to binding.nombre.text.toString(),
+            "apellidos" to binding.apellidos.text.toString(),
+            "correo" to binding.correo.text.toString(),
+            "telefono" to binding.telefono.text.toString()
+        )
 
-    private fun getAllUsers() {
-        // [START get_all_users]
         db.collection("perfiles")
-            .get()
-            .addOnSuccessListener { result ->
-                for (document in result) {
-                    Log.d(TAG, "${document.id} => ${document.data}")
-                }
+            .document(docId)
+            .update(updatedData)
+            .addOnSuccessListener {
+                Log.d(TAG, "Documento actualizado correctamente")
+                Toast.makeText(requireContext(), "Perfil actualizado exitosamente", Toast.LENGTH_SHORT).show()
             }
-            .addOnFailureListener { exception ->
-                Log.w(TAG, "Error getting documents.", exception)
+            .addOnFailureListener { e ->
+                Log.w(TAG, "Error actualizando el documento.", e)
             }
     }
 
