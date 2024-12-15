@@ -34,8 +34,8 @@ class ConsultasFragment : Fragment() {
         binding = ConsultasBinding.inflate(inflater, container, false)
 
         binding.enviarBoton.setOnClickListener {
-            Toast.makeText(requireContext(), "Consulta guardada", Toast.LENGTH_SHORT).show()
             enviarConsulta()
+            Toast.makeText(requireContext(), "Consulta guardada", Toast.LENGTH_SHORT).show()
         }
         return binding.root
     }
@@ -47,30 +47,36 @@ class ConsultasFragment : Fragment() {
         val consulta = binding.inputDescripcion.text.toString()
         val email = binding.inputCorreo.text.toString()
 
-        if (dni.isEmpty() || nombre.isEmpty() || telefono.isEmpty() || consulta.isEmpty()) {
+        if (dni.isEmpty() || nombre.isEmpty() || telefono.isEmpty() || consulta.isEmpty() || email.isEmpty()) {
             Toast.makeText(requireContext(), "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show()
             return
         }
 
+        // Verificar si el email tiene un formato válido
+        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            Toast.makeText(requireContext(), "Por favor, ingresa un correo válido", Toast.LENGTH_SHORT).show()
+            return
+        }
 
-        val subject = "Consulta de $nombre con Dni: $dni"
+        val subject = "Consulta de $nombre con DNI: $dni"
         val message = """
-            Nombre: $nombre
-            Teléfono: $telefono
-            Consulta: $consulta
-        """.trimIndent()
+        Nombre: $nombre
+        Teléfono: $telefono
+        Consulta: $consulta
+    """.trimIndent()
 
-        val intent = Intent(Intent.ACTION_SENDTO).apply {
-            data = Uri.parse("mailto:") // Solo aplicaciones de correo
+        val intent = Intent(Intent.ACTION_SEND).apply {
+            type = "message/rfc822" // MIME para aplicaciones de correo
             putExtra(Intent.EXTRA_EMAIL, arrayOf(email))
             putExtra(Intent.EXTRA_SUBJECT, subject)
             putExtra(Intent.EXTRA_TEXT, message)
         }
 
-        // Verifica si hay una app de correo disponible
-        if (intent.resolveActivity(requireActivity().packageManager) != null) {
-            startActivity(intent)
-        } else {
+        // Intent explícito para aplicaciones de correo
+        val chooser = Intent.createChooser(intent, "Selecciona una aplicación de correo")
+        try {
+            startActivity(chooser)
+        } catch (e: Exception) {
             Toast.makeText(requireContext(), "No hay una aplicación de correo instalada", Toast.LENGTH_SHORT).show()
         }
     }

@@ -14,6 +14,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.hakunamatata.R
+import com.example.hakunamatata.cita.citaDetallesData
 import com.example.hakunamatata.databinding.DetallesMascotaBinding
 import com.example.hakunamatata.perfil.PerfilData
 import com.google.firebase.Firebase
@@ -59,6 +60,7 @@ class DetallesMascFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        readMascotaDetalles()
         binding = DetallesMascotaBinding.inflate(inflater, container, false)
 
         // Restaurar la imagen guardada, si existe
@@ -170,6 +172,35 @@ class DetallesMascFragment : Fragment() {
             .addOnFailureListener { e ->
                 Log.w(TAG, "Error añadiendo la mascota.", e)
             }
+    }
+
+    private fun readMascotaDetalles() {
+
+        db.collection("mascotas")
+            .get()
+            .addOnSuccessListener { result ->
+                if (!result.isEmpty) {
+                    val mascotas = result.toObjects(DetallesMascData::class.java)
+                    if (mascotas.isNotEmpty()) {
+                        // Mostrar los datos de la primera mascota
+                        val mascota = mascotas[0] // Puedes manejar más de uno en una lista
+                        binding.chipMascota.setText(mascota.microChip)
+                        binding.nombreMascota.setText(mascota.nombre)
+                        binding.razaMascota.setText(mascota.raza)
+                        binding.edadMascota.setText(mascota.edad.toString())
+                        binding.colorMascota.setText(mascota.color)
+                        binding.tipoMascota.setText(mascota.tipo)
+
+                    }
+
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w(TAG, "Error al cargar las mascotas", exception)
+                Toast.makeText(requireContext(), "Error al cargar las mascotas", Toast.LENGTH_SHORT)
+                    .show()
+            }
+
     }
 
 }

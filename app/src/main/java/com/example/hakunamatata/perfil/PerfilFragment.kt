@@ -74,6 +74,8 @@ class PerfilFragment : Fragment() {
             binding.imagenperfil.setImageURI(uri)
         }
 
+        readPerfil()
+
         // Listener para la imagen de perfil
         binding.imagenperfil.setOnClickListener{
             if (checkPermission()) {
@@ -191,4 +193,32 @@ class PerfilFragment : Fragment() {
             }
     }
 
+
+    private fun readPerfil() {
+
+        db.collection("perfiles")
+            .get()
+            .addOnSuccessListener { result ->
+                if (!result.isEmpty) {
+                    val perfiles = result.toObjects(PerfilData::class.java)
+                    if (perfiles.isNotEmpty()) {
+                        // Mostrar los datos del primer perfil como ejemplo
+                        val perfil = perfiles[0] // Puedes manejar más de uno en una lista
+                        binding.nombre.setText(perfil.nombre)
+                        binding.apellidos.setText(perfil.apellidos)
+                        binding.correo.setText(perfil.correo)
+                        binding.telefono.setText(perfil.telefono)
+
+                    }
+
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w(TAG, "Error al cargar los perfiles", exception)
+                Toast.makeText(requireContext(), "Error al cargar los perfiles", Toast.LENGTH_SHORT)
+                    .show()
+            }
+
+    }
 }
+

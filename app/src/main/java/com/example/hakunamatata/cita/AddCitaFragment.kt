@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.hakunamatata.databinding.CitaAddBinding
 import com.example.hakunamatata.mascota.DetallesMascData
+import com.example.hakunamatata.perfil.PerfilData
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
 
@@ -20,12 +21,13 @@ class AddCitaFragment: Fragment() {
     //Firebase.
     val db = Firebase.firestore
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        readCitaDetalles()
 
         binding = CitaAddBinding.inflate(inflater,container,false)
 
@@ -35,6 +37,7 @@ class AddCitaFragment: Fragment() {
         binding.btnGuardarCita.setOnClickListener{
             addDetallesCita()
         }
+
         return binding.root
 
     }
@@ -97,6 +100,36 @@ class AddCitaFragment: Fragment() {
             .addOnFailureListener { e ->
                 Log.w(TAG, "Error añadiendo la cita.", e)
             }
+    }
+
+
+    private fun readCitaDetalles() {
+
+        db.collection("citas")
+            .get()
+            .addOnSuccessListener { result ->
+                if (!result.isEmpty) {
+                    val citas = result.toObjects(citaDetallesData::class.java)
+                    if (citas.isNotEmpty()) {
+                        // Mostrar los datos de la primera cita
+                        val cita = citas[1] // Puedes manejar más de uno en una lista
+                        binding.etdni.setText(cita.dni)
+                        binding.etnombre.setText(cita.nombre)
+                        binding.etapellido.setText(cita.apellidos)
+                        binding.etnombreemascota.setText(cita.nombreMascota)
+                        binding.ettelefono.setText(cita.telefono)
+                        binding.sphorario.setText(cita.fechaCita)
+
+                    }
+
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w(TAG, "Error al cargar las citas", exception)
+                Toast.makeText(requireContext(), "Error al cargar las citas", Toast.LENGTH_SHORT)
+                    .show()
+            }
+
     }
 
 }

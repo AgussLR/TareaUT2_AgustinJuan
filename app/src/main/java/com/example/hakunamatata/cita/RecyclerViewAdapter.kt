@@ -22,6 +22,7 @@ class RecyclerViewAdapter(private val items: List<CitaData>, private val onItemC
         holder.itemView.setOnClickListener {
             onItemClicked(currentItem)
         }
+
     }
 
     override fun getItemCount(): Int = items.size
