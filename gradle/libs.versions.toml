@@ -19,6 +19,7 @@ preference = "1.2.1"
 preferenceKtx = "1.2.1"
 googleGmsGoogleServices = "4.4.2"
 firebaseAuth = "23.1.0"
+firebaseCommonKtx = "21.0.0"
 
 [libraries]
 androidx-cardview = { module = "androidx.cardview:cardview", version.ref = "cardview" }
@@ -39,6 +40,7 @@ androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation
 androidx-preference-ktx = { group = "androidx.preference", name = "preference-ktx", version.ref = "preferenceKtx" }
 material-calendarview = { module = "com.prolificinteractive:material-calendarview", version.ref = "materialCalendarview" }
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
+firebase-common-ktx = { group = "com.google.firebase", name = "firebase-common-ktx", version.ref = "firebaseCommonKtx" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
