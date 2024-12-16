@@ -1,6 +1,6 @@
 package com.example.hakunamatata.perfil
 
-import android.Manifest
+import android.content.ContentValues.TAG
 import android.content.pm.PackageManager
 import android.net.Uri
 import androidx.fragment.app.viewModels
@@ -13,11 +13,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.example.hakunamatata.R
-import com.example.hakunamatata.databinding.FragmentProfileBinding
 import com.example.hakunamatata.databinding.PerfilBinding
+import com.google.firebase.Firebase
+import com.google.firebase.firestore.firestore
 import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream
@@ -26,6 +25,9 @@ class PerfilFragment : Fragment() {
     private lateinit var binding: PerfilBinding
     private val imageFileName = "profile_image.jpg"
     private var selectedImageUri: Uri? = null
+
+    //Firebase.
+    val db = Firebase.firestore
 
     // Código de solicitud de permiso
     private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
@@ -72,6 +74,8 @@ class PerfilFragment : Fragment() {
             binding.imagenperfil.setImageURI(uri)
         }
 
+        readPerfil()
+
         // Listener para la imagen de perfil
         binding.imagenperfil.setOnClickListener{
             if (checkPermission()) {
@@ -84,9 +88,9 @@ class PerfilFragment : Fragment() {
         }
 
 
-
         // Configurar el listener para guardar la imagen al presionar el botón
         binding.btnGuardarPerfil.setOnClickListener {
+            addPerfil()
             selectedImageUri?.let {
                 saveImageToFile(it) // Guardar la imagen seleccionada
             } ?: Log.d("PhotoPicker", "No image selected to save")
@@ -126,4 +130,95 @@ class PerfilFragment : Fragment() {
         ) == PackageManager.PERMISSION_GRANTED
     }
 
+    private fun addPerfil() {
+        val correo = binding.correo.text.toString()
+
+        // Verificar si el perfil ya existe basado en el correo
+        db.collection("perfiles")
+            .whereEqualTo("correo", correo) // Buscar por el correo como identificador único
+            .get()
+            .addOnSuccessListener { result ->
+                if (!result.isEmpty) {
+                    // Si existe, actualizamos el documento
+                    for (document in result) {
+                        val docId = document.id
+                        updatePerfil(docId)
+                    }
+                } else {
+                    // Si no existe, lo añadimos como nuevo
+                    createPerfil()
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w(TAG, "Error buscando el documento.", exception)
+            }
+    }
+
+    private fun createPerfil() {
+        val perfil = PerfilData(
+            binding.nombre.text.toString(),
+            binding.apellidos.text.toString(),
+            binding.correo.text.toString(),
+            binding.telefono.text.toString()
+        )
+
+        db.collection("perfiles")
+            .add(perfil)
+            .addOnSuccessListener { documentReference ->
+                Log.d(TAG, "Documento creado con ID: ${documentReference.id}")
+                Toast.makeText(requireContext(), "Perfil creado exitosamente", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener { e ->
+                Log.w(TAG, "Error añadiendo el documento.", e)
+            }
+    }
+
+    private fun updatePerfil(docId: String) {
+        val updatedData = mapOf(
+            "nombre" to binding.nombre.text.toString(),
+            "apellidos" to binding.apellidos.text.toString(),
+            "correo" to binding.correo.text.toString(),
+            "telefono" to binding.telefono.text.toString()
+        )
+
+        db.collection("perfiles")
+            .document(docId)
+            .update(updatedData)
+            .addOnSuccessListener {
+                Log.d(TAG, "Documento actualizado correctamente")
+                Toast.makeText(requireContext(), "Perfil actualizado exitosamente", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener { e ->
+                Log.w(TAG, "Error actualizando el documento.", e)
+            }
+    }
+
+
+    private fun readPerfil() {
+
+        db.collection("perfiles")
+            .get()
+            .addOnSuccessListener { result ->
+                if (!result.isEmpty) {
+                    val perfiles = result.toObjects(PerfilData::class.java)
+                    if (perfiles.isNotEmpty()) {
+                        // Mostrar los datos del primer perfil como ejemplo
+                        val perfil = perfiles[0] // Puedes manejar más de uno en una lista
+                        binding.nombre.setText(perfil.nombre)
+                        binding.apellidos.setText(perfil.apellidos)
+                        binding.correo.setText(perfil.correo)
+                        binding.telefono.setText(perfil.telefono)
+
+                    }
+
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w(TAG, "Error al cargar los perfiles", exception)
+                Toast.makeText(requireContext(), "Error al cargar los perfiles", Toast.LENGTH_SHORT)
+                    .show()
+            }
+
+    }
 }
+

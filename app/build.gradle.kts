@@ -43,10 +43,13 @@ android {
 
 dependencies {
 
-    implementation("com.firebaseui:firebase-ui-auth:7.2.0")
+    //FIRESTORE
+    implementation ("com.firebaseui:firebase-ui-auth:7.2.0")
     implementation("com.google.firebase:firebase-auth-ktx:23.1.0")
     implementation(platform("com.google.firebase:firebase-bom:33.7.0"))
+    implementation("com.google.firebase:firebase-firestore")
     implementation("com.google.firebase:firebase-analytics")
+    
 
     implementation("com.applandeo:material-calendar-view:1.9.2")
 
@@ -72,6 +75,7 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.preference.ktx)
     implementation(libs.firebase.auth)
+    implementation(libs.firebase.common.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

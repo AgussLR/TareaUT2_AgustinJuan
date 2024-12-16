@@ -9,11 +9,15 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hakunamatata.R
 import com.example.hakunamatata.databinding.CitasBinding
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.Firebase
+import com.google.firebase.firestore.firestore
 
 class CitaFragment : Fragment() {
 
     private lateinit var binding: CitasBinding
+
+    //Firebase.
+    val db = Firebase.firestore
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,8 +35,8 @@ class CitaFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val fab: FloatingActionButton = view.findViewById(R.id.floatingButtonCitas)
-        fab.setOnClickListener {
+        //val fab: FloatingActionButton = view.findViewById(R.id.floatingButtonCitas)
+        binding.floatingButtonCitas.setOnClickListener {
             // Navega al fragmento de detalles de mascota
             findNavController().navigate(R.id.action_CitaFragment_to_AddCitaFragment)
         }
@@ -57,4 +61,5 @@ class CitaFragment : Fragment() {
             findNavController().navigate(R.id.action_CitaFragment_to_AddCitaFragment, bundle)
         }
     }
+
 }
