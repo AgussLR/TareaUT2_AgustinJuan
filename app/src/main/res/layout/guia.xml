@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/pulseImage"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="-80dp"
+        android:layout_marginTop="-70dp"
+        android:src="@drawable/pulse"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_cuadro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="En este menú encontrarás las diferentes vistas de la app"
+        android:background="@drawable/button_normal"
+        android:layout_margin="50dp"
+        android:gravity="center"
+        android:maxLines="5"
+        android:padding="22dp"
+        android:textSize="22sp"
+        android:layout_gravity="center"
+        android:textColor="@color/white"
+        android:alpha="0"/>
+
+    <android.widget.Button
+        android:id="@+id/salir_guia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Saltar guía"
+        android:layout_gravity="right|top"
+        android:layout_margin="20dp"
+        android:padding="14dp"
+        android:textSize="15dp"
+        android:background="@drawable/button_skip"
+        android:textAllCaps="false"
+        android:textColor="@color/gris"/>
+
+</FrameLayout>
