@@ -18,70 +18,64 @@ class AddCitaFragment: Fragment() {
 
     private lateinit var binding: CitaAddBinding
 
-    //Firebase.
+    // Firebase Firestore
     val db = Firebase.firestore
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
+        binding = CitaAddBinding.inflate(inflater, container, false)
 
-        readCitaDetalles()
+        // DatePicker
+        binding.sphorario.setOnClickListener { showDatePickerDialog() }
 
-        binding = CitaAddBinding.inflate(inflater,container,false)
-
-        //DatePicker.
-        binding.sphorario.setOnClickListener{showDatePickerDialog()}
-
-        binding.btnGuardarCita.setOnClickListener{
+        // Botón Guardar Cita
+        binding.btnGuardarCita.setOnClickListener {
             addDetallesCita()
         }
 
         return binding.root
-
     }
 
-    private fun showDatePickerDialog(){
-        val datePicker = DatePickerFragment{day,month,year -> onDateSelected(day,month,year)}
-        datePicker.show(parentFragmentManager,"datePicker")
+    private fun showDatePickerDialog() {
+        val datePicker = DatePickerFragment { day, month, year -> onDateSelected(day, month, year) }
+        datePicker.show(parentFragmentManager, "datePicker")
     }
 
-    private fun onDateSelected(day:Int,month:Int,year:Int){
+    private fun onDateSelected(day: Int, month: Int, year: Int) {
         binding.sphorario.setText("$day/$month/$year")
     }
-
 
     private fun addDetallesCita() {
         val dni = binding.etdni.text.toString()
 
         if (dni.isEmpty()) {
-            Toast.makeText(requireContext(), "Por favor, introduce un número de dni", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Por favor, introduce un número de DNI", Toast.LENGTH_SHORT).show()
             return
         }
 
+        // Verificar si ya existe una cita con el DNI
         db.collection("citas")
             .whereEqualTo("dni", dni)
             .get()
             .addOnSuccessListener { result ->
                 if (!result.isEmpty) {
-                    // El microchip ya existe
-                    Toast.makeText(requireContext(), "Ya existe una cita con este dni", Toast.LENGTH_SHORT).show()
-                    Log.d(TAG, "Cita con dni $dni ya existe")
+                    // DNI duplicado
+                    Toast.makeText(requireContext(), "Ya existe una cita con este DNI", Toast.LENGTH_SHORT).show()
                 } else {
-                    // El microchip no existe, proceder a crear la mascota
+                    // Crear nueva cita
                     createCita(dni)
                 }
             }
             .addOnFailureListener { exception ->
-                Log.w(TAG, "Error verificando el dni.", exception)
-                Toast.makeText(requireContext(), "Error al comprobar el dni", Toast.LENGTH_SHORT).show()
+                Log.w(TAG, "Error verificando el DNI.", exception)
+                Toast.makeText(requireContext(), "Error al comprobar el DNI", Toast.LENGTH_SHORT).show()
             }
     }
 
     private fun createCita(dni: String) {
-
-
         val cita = citaDetallesData(
             dni,
             binding.etnombre.text.toString(),
@@ -93,43 +87,18 @@ class AddCitaFragment: Fragment() {
 
         db.collection("citas")
             .add(cita)
-            .addOnSuccessListener { documentReference ->
-                Log.d(TAG, "Documento creado con ID: ${documentReference.id}")
+            .addOnSuccessListener {
                 Toast.makeText(requireContext(), "Cita creada exitosamente", Toast.LENGTH_SHORT).show()
+                regresarAFragmentoPrincipal()
             }
             .addOnFailureListener { e ->
                 Log.w(TAG, "Error añadiendo la cita.", e)
+                Toast.makeText(requireContext(), "Error al crear la cita", Toast.LENGTH_SHORT).show()
             }
     }
 
-
-    private fun readCitaDetalles() {
-
-        db.collection("citas")
-            .get()
-            .addOnSuccessListener { result ->
-                if (!result.isEmpty) {
-                    val citas = result.toObjects(citaDetallesData::class.java)
-                    if (citas.isNotEmpty()) {
-                        // Mostrar los datos de la primera cita
-                        val cita = citas[1] // Puedes manejar más de uno en una lista
-                        binding.etdni.setText(cita.dni)
-                        binding.etnombre.setText(cita.nombre)
-                        binding.etapellido.setText(cita.apellidos)
-                        binding.etnombreemascota.setText(cita.nombreMascota)
-                        binding.ettelefono.setText(cita.telefono)
-                        binding.sphorario.setText(cita.fechaCita)
-
-                    }
-
-                }
-            }
-            .addOnFailureListener { exception ->
-                Log.w(TAG, "Error al cargar las citas", exception)
-                Toast.makeText(requireContext(), "Error al cargar las citas", Toast.LENGTH_SHORT)
-                    .show()
-            }
-
+    private fun regresarAFragmentoPrincipal() {
+        // Regresar al fragmento principal después de guardar
+        requireActivity().onBackPressed()
     }
-
 }

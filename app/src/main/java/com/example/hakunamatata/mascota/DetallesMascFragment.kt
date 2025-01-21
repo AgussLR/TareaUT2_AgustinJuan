@@ -1,5 +1,7 @@
 package com.example.hakunamatata.mascota
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.content.ContentValues.TAG
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -68,8 +70,10 @@ class DetallesMascFragment : Fragment() {
             binding.imagePerro.setImageURI(uri)
         }
 
+
         // Listener para la imagen de perfil
         binding.imagePerro.setOnClickListener{
+
             if (checkPermission()) {
                 // Si el permiso ya está concedido, abre el selector de imagen
                 pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))

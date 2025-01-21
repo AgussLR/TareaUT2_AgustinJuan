@@ -1,6 +1,8 @@
 package com.example.hakunamatata.cita
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,51 +17,64 @@ import com.google.firebase.firestore.firestore
 class CitaFragment : Fragment() {
 
     private lateinit var binding: CitasBinding
+    private lateinit var adapter: RecyclerViewAdapter
+    private val listaCitas = mutableListOf<CitaData>() // Lista mutable para manejar citas
 
-    //Firebase.
-    val db = Firebase.firestore
+    // Firebase Firestore
+    private val db = Firebase.firestore
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-
+    ): View {
         binding = CitasBinding.inflate(inflater, container, false)
 
         // Configurar RecyclerView
         setupRecyclerView()
+
+        // Escuchar cambios en Firebase
+        escucharCambiosFirebase()
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //val fab: FloatingActionButton = view.findViewById(R.id.floatingButtonCitas)
+        // Manejar clic del FloatingActionButton
         binding.floatingButtonCitas.setOnClickListener {
-            // Navega al fragmento de detalles de mascota
             findNavController().navigate(R.id.action_CitaFragment_to_AddCitaFragment)
         }
     }
 
     private fun setupRecyclerView() {
-        // Datos de prueba para el RecyclerView
-        val items = listOf(
-            CitaData("", "Cita 1", ""),
-            CitaData("", "Cita 2", "")
-        )
-
-        // Configurar el RecyclerView
-        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        binding.recyclerView.adapter = RecyclerViewAdapter(items) { citaData ->
-            // Crear un bundle para pasar datos al fragmento destino
-            val bundle = Bundle().apply {
-                putString("citaText", citaData.textMascota)
-            }
-
-            // Navegar al fragmento "Añadir Citas" pasando el bundle
-            findNavController().navigate(R.id.action_CitaFragment_to_AddCitaFragment, bundle)
+        adapter = RecyclerViewAdapter(listaCitas) { citaData ->
+            // Manejar clics en elementos del RecyclerView si es necesario
         }
+
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerView.adapter = adapter
     }
 
+    private fun escucharCambiosFirebase() {
+        db.collection("citas")
+            .addSnapshotListener { snapshot, e ->
+                if (e != null) {
+                    Log.w(TAG, "Error al escuchar cambios en Firebase", e)
+                    return@addSnapshotListener
+                }
+
+                if (snapshot != null) {
+                    listaCitas.clear()
+                    for (document in snapshot.documents) {
+                        val cita = document.toObject(CitaData::class.java)
+                        if (cita != null) {
+                            listaCitas.add(cita)
+                        }
+                    }
+                    adapter.notifyDataSetChanged()
+                }
+            }
+    }
 }

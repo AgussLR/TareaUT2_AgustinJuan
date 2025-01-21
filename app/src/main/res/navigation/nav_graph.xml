@@ -10,7 +10,9 @@
         android:label="PERFIL">
         <action
             android:id="@+id/action_profileFragment_to_homeFragment"
-            app:destination="@id/CitaFragment" />
+            app:destination="@id/CitaFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"/>
     </fragment>
 
     <fragment
@@ -25,7 +27,9 @@
         android:label="CITAS">
         <action
             android:id="@+id/action_CitaFragment_to_AddCitaFragment"
-            app:destination="@id/AddCitaFragment" />
+            app:destination="@id/AddCitaFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"/>
     </fragment>
 
     <fragment
@@ -75,7 +79,9 @@
         android:label="MASCOTAS">
         <action
             android:id="@+id/action_mascotasFragment_to_detallesMascFragment"
-            app:destination="@id/detallesMascFragment" />
+            app:destination="@id/detallesMascFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"/>
     </fragment>
 
 

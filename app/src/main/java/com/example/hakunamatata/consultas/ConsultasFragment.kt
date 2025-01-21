@@ -15,6 +15,7 @@ import com.example.hakunamatata.databinding.DetallesMascotaBinding
 
 class ConsultasFragment : Fragment() {
     private lateinit var binding: ConsultasBinding
+
     companion object {
         fun newInstance() = ConsultasFragment()
     }
@@ -37,9 +38,13 @@ class ConsultasFragment : Fragment() {
             enviarConsulta()
             Toast.makeText(requireContext(), "Consulta guardada", Toast.LENGTH_SHORT).show()
         }
+        binding.videoView.setOnClickListener {
+            insertVideo()
+        }
         return binding.root
     }
 
+    //Método para enviar una consulta.
     private fun enviarConsulta() {
         val dni = binding.inputDNI.text.toString()
         val nombre = binding.inputNombre.text.toString()
@@ -48,13 +53,21 @@ class ConsultasFragment : Fragment() {
         val email = binding.inputCorreo.text.toString()
 
         if (dni.isEmpty() || nombre.isEmpty() || telefono.isEmpty() || consulta.isEmpty() || email.isEmpty()) {
-            Toast.makeText(requireContext(), "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                requireContext(),
+                "Por favor, completa todos los campos",
+                Toast.LENGTH_SHORT
+            ).show()
             return
         }
 
         // Verificar si el email tiene un formato válido
         if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            Toast.makeText(requireContext(), "Por favor, ingresa un correo válido", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                requireContext(),
+                "Por favor, ingresa un correo válido",
+                Toast.LENGTH_SHORT
+            ).show()
             return
         }
 
@@ -77,7 +90,19 @@ class ConsultasFragment : Fragment() {
         try {
             startActivity(chooser)
         } catch (e: Exception) {
-            Toast.makeText(requireContext(), "No hay una aplicación de correo instalada", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                requireContext(),
+                "No hay una aplicación de correo instalada",
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
+
+    //Método para insertar un vídeo.
+    private fun insertVideo() {
+        binding.videoView.setVideoPath("android.resource://com.example.hakunamatata/${R.raw.caballos_corriendo}")
+        binding.videoView.start()
+    }
+
+
 }

@@ -1,7 +1,10 @@
 package com.example.hakunamatata.perfil
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.content.ContentValues.TAG
 import android.content.pm.PackageManager
+import android.media.SoundPool
 import android.net.Uri
 import androidx.fragment.app.viewModels
 import android.os.Bundle
@@ -14,6 +17,7 @@ import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
+import com.example.hakunamatata.R
 import com.example.hakunamatata.databinding.PerfilBinding
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
@@ -87,6 +91,7 @@ class PerfilFragment : Fragment() {
             }
         }
 
+        animarImage()
 
         // Configurar el listener para guardar la imagen al presionar el botón
         binding.btnGuardarPerfil.setOnClickListener {
@@ -96,6 +101,8 @@ class PerfilFragment : Fragment() {
             } ?: Log.d("PhotoPicker", "No image selected to save")
             Toast.makeText(requireContext(), "Perfil guardado", Toast.LENGTH_SHORT).show()
         }
+
+        //sonidoPerro()
 
         return binding.root
     }
@@ -220,5 +227,36 @@ class PerfilFragment : Fragment() {
             }
 
     }
+
+
+    private fun animarImage(){
+
+        val scaleX = ObjectAnimator.ofFloat(binding.animation, "scaleX", 1f, 0.5f)
+        val scaleY = ObjectAnimator.ofFloat(binding.animation, "scaleY", 1f, 0.5f)
+
+        val fadeIn = ObjectAnimator.ofFloat(binding.animation, "alpha", 0f, 1f)
+
+        scaleX.repeatCount = 3
+        scaleY.repeatCount = 3
+        val animatorSet = AnimatorSet()
+        animatorSet.play(scaleX).with(scaleY).before(fadeIn)
+
+
+        animatorSet.duration = 1000 // Duración de la animación
+        animatorSet.start()
+    }
+
+    private fun sonidoPerro(){
+        val soundPool = SoundPool.Builder().setMaxStreams(1).build()
+        val soundId = soundPool.load(requireContext(), R.raw.perro_ladrando,1)
+
+
+        soundPool.setOnLoadCompleteListener{_,_,status->
+            if (status==0){
+                soundPool.play(soundId,1f,1f,0,0,1f)
+            }
+        }
+    }
+
 }
 
